@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {HttpClientModule} from '@angular/common/http';
-import {Observable} from 'rxjs';
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
 };
@@ -18,4 +17,19 @@ export class EasylearnService {
     return this.http.get('/server/api/v1/teachers');
   }
 
+  getStudents() {
+    return this.http.get('/server/api/v1/students');
+  }
+
+  getAppointments() {
+    return this.http.get('/server/api/v1/appointments');
+  }
+
+  getParents() {
+    return this.http.get('/server/api/v1/parents');
+  }
+
+  getCourses() {
+    return this.http.get('/server/api/v1/courses');
+  }
 }
