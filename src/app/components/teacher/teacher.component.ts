@@ -3,10 +3,10 @@ import { EasylearnService } from '../../services/easylearn.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './teacher.component.html',
+  styleUrls: ['./teacher.component.css']
 })
-export class AdminComponent implements OnInit {
+export class TeacherComponent implements OnInit {
   public teachers;
 
   constructor(private easylearnService: EasylearnService) { }
