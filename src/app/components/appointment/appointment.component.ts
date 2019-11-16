@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EasylearnService} from '../../services/easylearn.service';
 
 @Component({
   selector: 'app-appointment',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor() { }
+  public appointments;
+
+  constructor(private easylearnService: EasylearnService) { }
 
   ngOnInit() {
+    this.getAppointments();
   }
 
+  getAppointments() {
+    this.easylearnService.getAppointments().subscribe(
+      data => {this.appointments = data; },
+      err => console.error(err),
+      () => console.log('Appointments loaded')
+    );
+  }
 }

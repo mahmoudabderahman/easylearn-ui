@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EasylearnService} from '../../services/easylearn.service';
 
 @Component({
   selector: 'app-parent',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  constructor() { }
+  public parents;
+
+  constructor(private easylearnService: EasylearnService) { }
 
   ngOnInit() {
+    this.getParents();
   }
 
+  private getParents() {
+    this.easylearnService.getParents().subscribe(
+      data => {this.parents = data; },
+      err => console.error(err),
+      () => console.log('Parents loaded')
+    );
+  }
 }
