@@ -5,6 +5,8 @@ import {ParentComponent} from './components/parent/parent.component';
 import {StudentComponent} from './components/student/student.component';
 import {AppointmentComponent} from './components/appointment/appointment.component';
 import {CourseComponent} from './components/course/course.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,18 @@ const routes: Routes = [
     path: 'courses',
     component: CourseComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'admin-page',
+    component: AdminPageComponent
+  }
 ];
 
 @NgModule({
