@@ -12,6 +12,7 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
 import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import {FormsModule} from '@angular/forms';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -24,6 +25,8 @@ import {FormsModule} from '@angular/forms';
     AppointmentComponent,
     LoginComponent,
     AdminPageComponent,
+    UserComponent,
+
   ],
   imports: [
     BrowserModule,

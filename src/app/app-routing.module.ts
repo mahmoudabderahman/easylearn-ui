@@ -7,6 +7,7 @@ import {AppointmentComponent} from './components/appointment/appointment.compone
 import {CourseComponent} from './components/course/course.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { UserComponent } from './components/user/user.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,11 @@ const routes: Routes = [
   {
     path: 'admin-page',
     component: AdminPageComponent
-  }
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { LoginComponent } from '../components/login/login.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -12,6 +13,9 @@ const httpOptions = {
 export class EasylearnService {
 
   constructor(private http: HttpClient) { }
+
+
+
 
   getTeachers() {
     return this.http.get('/server/api/v1/teachers');
@@ -32,4 +36,10 @@ export class EasylearnService {
   getCourses() {
     return this.http.get('/server/api/v1/courses');
   }
+
+  getUsers() {
+    return this.http.get('/server/api/v1/users');
+  }
+
+
 }

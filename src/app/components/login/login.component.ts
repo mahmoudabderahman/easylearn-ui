@@ -12,14 +12,28 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
+  invalidLogin = false;
   ngOnInit() {
   }
-  login() : void {
-    if(this.username == 'admin' && this.password == 'admin'){
-      this.router.navigate(["admin-page"]);
-    }else {
-      alert("Invalid credentials");
+  checkLogin() {
+    if (this.username === 'user' && this.password === '123') {
+      this.router.navigate(['user']);
     }
+    /*
+    (this.loginService.authenticate(this.username, this.password).subscribe(
+        data => {
+          this.router.navigate(['user'])
+          this.invalidLogin = false
+        },
+        error => {
+          this.invalidLogin = true
+
+        }
+      )
+    );
+
+     */
+
   }
 
 
