@@ -1,0 +1,23 @@
+<h1>Students</h1>
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Full Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.email}}</td>
+      <td>{{student.firstName + ' ' + student.lastName}}</td>
+      <td><button (click)="updateStudent(student.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteStudent(student.id)" class="btn btn-warning">Delete</button> </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="createStudent()" class="btn btn-success">Create a new Student</button>
+</div>
