@@ -11,6 +11,8 @@ import { UserComponent } from './components/user/user.component';
 import {RouteGuardService} from './route-guard.service';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
 import {StudentCreateComponent} from "./components/student/student-create/student-create.component";
+import {ErrorComponent} from "./components/error/error.component";
+import {LogoutComponent} from "./components/logout/logout.component";
 const routes: Routes = [
   {
     path: '',
@@ -57,6 +59,14 @@ const routes: Routes = [
     path: 'user',
     component: UserComponent, canActivate: [RouteGuardService]
   },
+  {
+    path: 'logout',
+    component: LogoutComponent , canActivate: [RouteGuardService]
+  },
+  {
+    path: '**',
+    component: ErrorComponent
+  }
 ];
 
 @NgModule({

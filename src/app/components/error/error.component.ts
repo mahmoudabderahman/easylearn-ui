@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
+  errorMessage = 'An Error Occurred! The page you have requested is not valid!'
+
   constructor() { }
 
   ngOnInit() {

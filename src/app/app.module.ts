@@ -17,6 +17,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 import { StudentUpdateComponent } from './components/student/student-update/student-update.component';
 import { StudentCreateComponent } from './components/student/student-create/student-create.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { StudentCreateComponent } from './components/student/student-create/stud
     MenuAdminComponent,
     StudentUpdateComponent,
     StudentCreateComponent,
+    LogoutComponent,
+    FooterComponent,
 
   ],
   imports: [

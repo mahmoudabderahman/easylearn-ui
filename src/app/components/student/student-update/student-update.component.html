@@ -9,11 +9,11 @@
   <form (ngSubmit)="!studentForm.invalid && saveStudent()" #studentForm="ngForm">
     <fieldset class="form-group">
       <label>First Name</label>
-      <input type="text" #firstName="ngModel" [(ngModel)]="student.firstName" class="form-control" name="firstName" required="required" minlength="5">
+      <input type="text" #firstName="ngModel" [(ngModel)]="student.firstName" class="form-control" name="firstName" required="required" minlength="2">
     </fieldset>
     <fieldset class="form-group">
       <label>Last Name</label>
-      <input type="text" #lastName="ngModel" [(ngModel)]="student.lastName" class="form-control" name="lastName" required="required" minlength="5">
+      <input type="text" #lastName="ngModel" [(ngModel)]="student.lastName" class="form-control" name="lastName" required="required" minlength="2">
     </fieldset>
     <fieldset class="form-group">
       <label>E-Mail</label>
