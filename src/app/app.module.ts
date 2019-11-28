@@ -15,7 +15,8 @@ import {FormsModule} from '@angular/forms';
 import { UserComponent } from './components/user/user.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
-import { StudentFormComponent } from './components/student/student-form/student-form.component';
+import { StudentUpdateComponent } from './components/student/student-update/student-update.component';
+import { StudentCreateComponent } from './components/student/student-create/student-create.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { StudentFormComponent } from './components/student/student-form/student-
     UserComponent,
     ErrorComponent,
     MenuAdminComponent,
-    StudentFormComponent,
+    StudentUpdateComponent,
+    StudentCreateComponent,
 
   ],
   imports: [

@@ -9,8 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { UserComponent } from './components/user/user.component';
 import {RouteGuardService} from './route-guard.service';
-import {MenuAdminComponent} from './components/menu-admin/menu-admin.component';
-import {StudentFormComponent} from './components/student/student-form/student-form.component';
+import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
+import {StudentCreateComponent} from "./components/student/student-create/student-create.component";
 const routes: Routes = [
   {
     path: '',
@@ -29,8 +29,12 @@ const routes: Routes = [
     component: StudentComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'students/:id',
-    component: StudentFormComponent, canActivate: [RouteGuardService]
+    path: 'students/update/:id',
+    component: StudentUpdateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'students/create',
+    component: StudentCreateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'appointments',

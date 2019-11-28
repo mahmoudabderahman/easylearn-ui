@@ -22,7 +22,7 @@ export class StudentComponent implements OnInit {
 
   students: Student[];
   message: string;
-
+  student: Student;
   constructor(private service: StudentService, private router: Router) { }
 
   ngOnInit() {
@@ -48,11 +48,12 @@ export class StudentComponent implements OnInit {
 
   updateStudent(id) {
 
-    this.router.navigate(['students', id]);
+    this.router.navigate(['students/update', id]);
   }
 
+
   createStudent() {
-    this.router.navigate(['students', -1]);
+    this.router.navigate(['students/create']);
 
   }
 }

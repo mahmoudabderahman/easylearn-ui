@@ -24,10 +24,10 @@ export class StudentService {
   }
 
   createStudent(student) {
-    return this.http.post(`/server/api/v1/students`, student);
+    return this.http.post(`/server/api/v1/students/create`, student);
   }
 
   updateStudent(id: number, student: Student) {
-    return this.http.put(`/server/api/v1/students/${id}`, student);
+    return this.http.put(`/server/api/v1/students/update/${id}`, student);
   }
 }
