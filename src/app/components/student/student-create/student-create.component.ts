@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentService} from "../../../services/data/student/student.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Student} from "../student-list/student.component";
+import {StudentService} from '../../../services/data/student/student.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Student} from '../student-list/student.component';
 
 @Component({
   selector: 'app-student-create',
@@ -31,8 +31,8 @@ export class StudentCreateComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.pagesRouter.navigate(['students'])
+          this.pagesRouter.navigate(['students']);
         }
-      )
+      );
   }
 }

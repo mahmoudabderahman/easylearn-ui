@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { LoginComponent } from '../../components/login/login.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json'})

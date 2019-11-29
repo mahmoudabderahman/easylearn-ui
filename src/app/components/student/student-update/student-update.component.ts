@@ -24,12 +24,11 @@ export class StudentUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.student = new Student( '', '', '', '')
-    if (this.router.snapshot.params['id'] != -1) {
-      this.id = this.router.snapshot.params['id']
-      this.studentService.getStudent(this.id).subscribe(
-        data => this.student = data
-      );
-    }
+    this.id = this.router.snapshot.params['id']
+    this.studentService.getStudent(this.id).subscribe(
+      data => this.student = data
+    );
+
   }
 
   saveStudent() {

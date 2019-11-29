@@ -4,8 +4,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {EasylearnService} from './services/data/easylearn.service';
-import { TeacherComponent } from './components/teacher/teacher.component';
-import { ParentComponent } from './components/parent/parent.component';
+import { TeacherComponent } from './components/teacher/teacher-list/teacher.component';
+import { ParentComponent } from './components/parent/parent-list/parent.component';
 import { StudentComponent } from './components/student/student-list/student.component';
 import { CourseComponent } from './components/course/course.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
@@ -19,6 +19,10 @@ import { StudentUpdateComponent } from './components/student/student-update/stud
 import { StudentCreateComponent } from './components/student/student-create/student-create.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TeacherCreateComponent } from './components/teacher/teacher-create/teacher-create.component';
+import { TeacherUpdateComponent } from './components/teacher/teacher-update/teacher-update.component';
+import { ParentUpdateComponent } from './components/parent/parent-update/parent-update.component';
+import { ParentCreateComponent } from './components/parent/parent-create/parent-create.component';
 
 
 @NgModule({
@@ -38,6 +42,10 @@ import { FooterComponent } from './components/footer/footer.component';
     StudentCreateComponent,
     LogoutComponent,
     FooterComponent,
+    TeacherCreateComponent,
+    TeacherUpdateComponent,
+    ParentUpdateComponent,
+    ParentCreateComponent,
 
   ],
   imports: [

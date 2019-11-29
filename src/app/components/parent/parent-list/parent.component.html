@@ -1,0 +1,25 @@
+<h1>Parents</h1>
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Full Name</th>
+      <th>Parent type</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let parent of parents">
+      <td>{{parent.email}}</td>
+      <td>{{parent.firstName + ' ' + parent.lastName}}</td>
+      <td>{{parent.type}}</td>
+      <td><button (click)="updateParent(parent.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteParent(parent.id)" class="btn btn-danger">Delete</button> </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="createParent()" class="btn btn-success">Create a new Parent</button>
+</div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {TeacherComponent} from './components/teacher/teacher.component';
-import {ParentComponent} from './components/parent/parent.component';
+import {TeacherComponent} from './components/teacher/teacher-list/teacher.component';
+import {ParentComponent} from './components/parent/parent-list/parent.component';
 import {StudentComponent} from './components/student/student-list/student.component';
 import {AppointmentComponent} from './components/appointment/appointment.component';
 import {CourseComponent} from './components/course/course.component';
@@ -13,6 +13,10 @@ import {StudentUpdateComponent} from './components/student/student-update/studen
 import {StudentCreateComponent} from "./components/student/student-create/student-create.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {LogoutComponent} from "./components/logout/logout.component";
+import {TeacherCreateComponent} from './components/teacher/teacher-create/teacher-create.component';
+import {TeacherUpdateComponent} from './components/teacher/teacher-update/teacher-update.component';
+import {ParentCreateComponent} from './components/parent/parent-create/parent-create.component';
+import {ParentUpdateComponent} from './components/parent/parent-update/parent-update.component';
 const routes: Routes = [
   {
     path: '',
@@ -23,20 +27,36 @@ const routes: Routes = [
     component: TeacherComponent, canActivate: [RouteGuardService]
   },
   {
+    path: 'teachers/create',
+    component: TeacherCreateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'teachers/:id',
+    component: TeacherUpdateComponent, canActivate: [RouteGuardService]
+  },
+  {
     path: 'parents',
     component: ParentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'parents/create',
+    component: ParentCreateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'parents/:id',
+    component: ParentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'students',
     component: StudentComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'students/update/:id',
-    component: StudentUpdateComponent, canActivate: [RouteGuardService]
-  },
-  {
     path: 'students/create',
     component: StudentCreateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'students/:id',
+    component: StudentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'appointments',

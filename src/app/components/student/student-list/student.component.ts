@@ -47,13 +47,11 @@ export class StudentComponent implements OnInit {
   }
 
   updateStudent(id) {
-
-    this.router.navigate(['students/update', id]);
+    this.router.navigate(['students', id]);
   }
 
 
   createStudent() {
     this.router.navigate(['students/create']);
-
   }
 }

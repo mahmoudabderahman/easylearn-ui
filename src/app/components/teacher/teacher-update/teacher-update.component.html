@@ -1,0 +1,28 @@
+<h1>Teachers</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="teacherForm.dirty && teacherForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="teacherForm.dirty && firstName.invalid">Enter a valid value for first name</div>
+  <div class="alert alert-warning" *ngIf="teacherForm.dirty && lastName.invalid">Enter a valid value for last name</div>
+  <div class="alert alert-warning" *ngIf="teacherForm.dirty && email.invalid">Enter a valid email address</div>
+  <div class="alert alert-warning" *ngIf="teacherForm.dirty && password.invalid">Enter a valid password</div>
+
+  <form (ngSubmit)="!teacherForm.invalid && saveTeacher()" #teacherForm="ngForm">
+    <fieldset class="form-group">
+      <label>First Name</label>
+      <input type="text" #firstName="ngModel" [(ngModel)]="teacher.firstName" class="form-control" name="firstName" required="required" minlength="2">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Last Name</label>
+      <input type="text" #lastName="ngModel" [(ngModel)]="teacher.lastName" class="form-control" name="lastName" required="required" minlength="2">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>E-Mail</label>
+      <input [email]="true" type="email" #email="ngModel" [(ngModel)]="teacher.email" class="form-control" name="email" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Password</label>
+      <input type="text" #password="ngModel" [(ngModel)]="teacher.password" class="form-control" name="password" required="required" minlength="6">
+    </fieldset>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </form>
+</div>
