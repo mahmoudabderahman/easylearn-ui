@@ -25,15 +25,11 @@
     </fieldset>
     <fieldset class="form-group">
       <label>Parent type</label>
-      <select class="form-control" [(ngModel)]="parent.type" name="parentType">
-        <option value="1">
-          FATHER
-        </option>
-        <option value="1">
-          MOTHER
-        </option>
+      <select class="form-control" [(ngModel)]="parent.type" name="parentType" (click)="updateSelections()">
+        <option  [ngValue]="parent.type">{{parent.type}}</option>
+        <option [ngValue]="notSelectedParentType" >{{notSelectedParentType}}</option>
       </select>
     </fieldset>
-    <button type="submit" class="btn btn-success" >Create</button>
+    <button type="submit" class="btn btn-success" >Save</button>
   </form>
 </div>
