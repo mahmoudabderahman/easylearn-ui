@@ -14,6 +14,7 @@ export class ParentUpdateComponent implements OnInit {
   parent: Parent;
   type: ParentType;
   notSelectedParentType: ParentType;
+  selectedType: ParentType;
 
   constructor(
     private parentService: ParentService,
@@ -24,15 +25,15 @@ export class ParentUpdateComponent implements OnInit {
   ngOnInit() {
     this.parent = new Parent('', '', '', '');
     this.id = this.router.snapshot.params['id']
-    this.updateSelections()
+
     this.parentService.getParent(this.id).subscribe(
-      data => this.parent = data
+      data => { this.parent = data;  this.selectedType = data.type; console.log(this.type); this.updateParentTypeSelections(); }
     );
+
   }
 
 
   saveParent() {
-
     this.parentService.updateParent(this.id, this.parent)
       .subscribe(
         data => {
@@ -41,13 +42,12 @@ export class ParentUpdateComponent implements OnInit {
       );
   }
 
-
-  updateSelections() {
-    console.log(this.notSelectedParentType)
-    if (this.type === ParentType.FATHER) {
+  updateParentTypeSelections() {
+    if (this.selectedType === ParentType.FATHER) {
       this.notSelectedParentType = ParentType.MOTHER;
     } else {
       this.notSelectedParentType = ParentType.FATHER;
     }
   }
+
 }
