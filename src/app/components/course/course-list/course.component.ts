@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EasylearnService} from '../../services/data/easylearn.service';
+import {EasylearnService} from '../../../services/data/easylearn.service';
 
 @Component({
   selector: 'app-course',

@@ -4,7 +4,7 @@ import {TeacherComponent} from './components/teacher/teacher-list/teacher.compon
 import {ParentComponent} from './components/parent/parent-list/parent.component';
 import {StudentComponent} from './components/student/student-list/student.component';
 import {AppointmentComponent} from './components/appointment/appointment.component';
-import {CourseComponent} from './components/course/course.component';
+import {CourseComponent} from './components/course/course-list/course.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { UserComponent } from './components/user/user.component';
