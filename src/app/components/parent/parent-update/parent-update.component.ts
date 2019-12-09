@@ -25,7 +25,7 @@ export class ParentUpdateComponent implements OnInit {
   ngOnInit() {
     this.parent = new Parent('', '', '', '');
     this.id = this.router.snapshot.params['id']
-
+    console.log(this.id)
     this.parentService.getParent(this.id).subscribe(
       data => { this.parent = data;  this.selectedType = data.type; console.log(this.type); this.updateParentTypeSelections(); }
     );

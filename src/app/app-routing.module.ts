@@ -10,13 +10,15 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { UserComponent } from './components/user/user.component';
 import {RouteGuardService} from './route-guard.service';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
-import {StudentCreateComponent} from "./components/student/student-create/student-create.component";
-import {ErrorComponent} from "./components/error/error.component";
-import {LogoutComponent} from "./components/logout/logout.component";
+import {StudentCreateComponent} from './components/student/student-create/student-create.component';
+import {ErrorComponent} from './components/error/error.component';
+import {LogoutComponent} from './components/logout/logout.component';
 import {TeacherCreateComponent} from './components/teacher/teacher-create/teacher-create.component';
 import {TeacherUpdateComponent} from './components/teacher/teacher-update/teacher-update.component';
 import {ParentCreateComponent} from './components/parent/parent-create/parent-create.component';
 import {ParentUpdateComponent} from './components/parent/parent-update/parent-update.component';
+import {CourseCreateComponent} from './components/course/course-create/course-create.component';
+import {CourseUpdateComponent} from './components/course/course-update/course-update.component';
 const routes: Routes = [
   {
     path: '',
@@ -65,6 +67,14 @@ const routes: Routes = [
   {
     path: 'courses',
     component: CourseComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/create',
+    component: CourseCreateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/:id',
+    component: CourseUpdateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',

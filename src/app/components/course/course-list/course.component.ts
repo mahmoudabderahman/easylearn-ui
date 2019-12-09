@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {EasylearnService} from '../../../services/data/easylearn.service';
+import {CourseService} from '../../../services/data/course/course.service';
+import {Router} from '@angular/router';
+
+export class Course {
+  public id: number;
+  constructor(
+    public courseCode: string,
+    public name: string,
+    public grade: number,
+    public content: string,
+    public description: string,
+    ) {}
+}
 
 @Component({
   selector: 'app-course',
@@ -8,19 +20,39 @@ import {EasylearnService} from '../../../services/data/easylearn.service';
 })
 export class CourseComponent implements OnInit {
 
-  public courses;
+  courses: Course[];
+  message: string;
+  course: Course;
+  id: number;
 
-  constructor(private easylearnService: EasylearnService) { }
+  constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit() {
-    this.getCourses();
+    this.refreshCourses();
   }
 
-  getCourses() {
-    this.easylearnService.getCourses().subscribe(
+  refreshCourses() {
+    this.courseService.getCourses().subscribe(
       data => {this.courses = data; },
       err => console.error(err),
       () => console.log('Courses loaded')
+    );
+  }
+
+  createCourse() {
+    this.router.navigate(['courses/create']);
+  }
+
+  updateCourse(id) {
+    this.router.navigate(['courses', id]);
+  }
+
+  deleteCourse(id: number) {
+    this.courseService.deleteCourse(id).subscribe(
+      response => {
+        this.message = `Delete of Course with code: ${id} successful`;
+        this.refreshCourses();
+      }
     );
   }
 }

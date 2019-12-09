@@ -1,30 +1,29 @@
-<script src="course.component.ts"></script>
+<h1>Courses</h1>
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
 <div class="container">
-  <table class="table table-dark">
-  <tr>
-    <th>Course Code</th>
-    <th>Course Name</th>
-    <th>Content</th>
-    <th>Description</th>
-    <th>Grade</th>
-  </tr>
-  <tr *ngFor="let course of courses">
-
-    <td>
-      {{course.courseCode}}
-    </td>
-    <td>
-      {{course.name}}
-    </td>
-    <td>
-      {{course.content}}
-    </td>
-    <td>
-      {{course.description}}
-    </td>
-    <td>
-      {{course.grade}}
-    </td>
-  </tr>
-</table>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Content</th>
+      <th>Description</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{course.courseCode}}</td>
+      <td>{{course.name}}</td>
+      <td>{{course.grade}}</td>
+      <td>{{course.content}}</td>
+      <td>{{course.description}}</td>
+      <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteCourse(course.courseCode)" class="btn btn-danger">Delete</button> </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="createCourse()" class="btn btn-success">Create a new Parent</button>
 </div>
