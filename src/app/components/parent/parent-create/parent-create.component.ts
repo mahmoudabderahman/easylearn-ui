@@ -15,7 +15,7 @@ export class ParentCreateComponent implements OnInit {
   lastName: string;
   email: string;
   password: string;
-  type: ParentType;
+  type: ParentType = ParentType.FATHER;
 
   constructor(
     private parentService: ParentService,

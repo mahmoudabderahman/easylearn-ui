@@ -25,11 +25,11 @@
     </fieldset>
     <fieldset class="form-group">
       <label>Parent type</label>
-      <select class="form-control" [(ngModel)]="type" name="type">
-        <option value="0">
+      <select class="form-control" [(ngModel)]="type" name="type" >
+        <option [defaultSelected]="type" value="FATHER" >
           FATHER
         </option>
-        <option value="1">
+        <option value="MOTHER">
           MOTHER
         </option>
       </select>
