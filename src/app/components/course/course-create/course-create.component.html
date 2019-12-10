@@ -1,1 +1,34 @@
-<p>course-create works!</p>
+<h1>Courses</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="courseForm.dirty && courseForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="courseForm.dirty && codetxt.invalid">Enter a valid value for course code</div>
+  <div class="alert alert-warning" *ngIf="courseForm.dirty && nametxt.invalid">Enter a valid value for course name</div>
+  <div class="alert alert-warning" *ngIf="courseForm.dirty && contentTxt.invalid">Enter a valid content text</div>
+  <div class="alert alert-warning" *ngIf="courseForm.dirty && descriptionTxt.invalid">Enter a valid description</div>
+
+  <form (ngSubmit)="!courseForm.invalid && createCourse()" #courseForm="ngForm">
+    <fieldset class="form-group">
+      <label>Course Code</label>
+      <input type="text" #codetxt="ngModel" [(ngModel)]="courseCode" class="form-control" name="courseCode" required="required" minlength="2">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Course Name</label>
+      <input type="text" #nametxt="ngModel" [(ngModel)]="name" class="form-control" name="name" required="required" minlength="2">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Grade</label>
+      <select class="form-control" [(ngModel)]="grade" name="courseGrade" >
+        <option *ngFor="let gradeIndex of grades" [value]="gradeIndex.id">{{gradeIndex.name}}</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Content</label>
+      <input type="text" #contentTxt="ngModel" [(ngModel)]="content" class="form-control" name="content" required="required" minlength="6">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Description</label>
+      <input type="text" #descriptionTxt="ngModel" [(ngModel)]="description" class="form-control" name="description" required="required" minlength="6">
+    </fieldset>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </form>
+</div>

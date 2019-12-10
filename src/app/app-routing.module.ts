@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {TeacherComponent} from './components/teacher/teacher-list/teacher.component';
 import {ParentComponent} from './components/parent/parent-list/parent.component';
 import {StudentComponent} from './components/student/student-list/student.component';
-import {AppointmentComponent} from './components/appointment/appointment.component';
+import {AppointmentComponent} from './components/appointment/appointment-list/appointment.component';
 import {CourseComponent} from './components/course/course-list/course.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
@@ -19,6 +19,8 @@ import {ParentCreateComponent} from './components/parent/parent-create/parent-cr
 import {ParentUpdateComponent} from './components/parent/parent-update/parent-update.component';
 import {CourseCreateComponent} from './components/course/course-create/course-create.component';
 import {CourseUpdateComponent} from './components/course/course-update/course-update.component';
+import {AppointmentCreateComponent} from './components/appointment/appointment-create/appointment-create.component';
+import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
 const routes: Routes = [
   {
     path: '',
@@ -63,6 +65,14 @@ const routes: Routes = [
   {
     path: 'appointments',
     component: AppointmentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'appointments/create',
+    component: AppointmentCreateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'appointments/:id',
+    component: AppointmentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'courses',

@@ -21,9 +21,9 @@
       <td>{{course.content}}</td>
       <td>{{course.description}}</td>
       <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button> </td>
-      <td><button (click)="deleteCourse(course.courseCode)" class="btn btn-danger">Delete</button> </td>
+      <td><button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button> </td>
     </tr>
     </tbody>
   </table>
-  <button (click)="createCourse()" class="btn btn-success">Create a new Parent</button>
+  <button (click)="createCourse()" class="btn btn-success">Create a new Course</button>
 </div>

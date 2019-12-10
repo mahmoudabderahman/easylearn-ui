@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {EasylearnService} from '../../services/data/easylearn.service';
+import {EasylearnService} from '../../../services/data/easylearn.service';
+
+export class Appointment {
+  public id: number;
+  constructor(
+    public startDate: Date,
+    public endDate: Date,
+    public roomNumber: number
+  ) {}
+}
 
 @Component({
   selector: 'app-appointment',
