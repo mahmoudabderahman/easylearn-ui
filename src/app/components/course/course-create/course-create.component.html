@@ -18,7 +18,7 @@
     <fieldset class="form-group">
       <label>Grade</label>
       <select class="form-control" [(ngModel)]="grade" name="courseGrade" >
-        <option *ngFor="let gradeIndex of grades" [value]="gradeIndex.id">{{gradeIndex.name}}</option>
+        <option [defaultSelected]="grade" *ngFor="let gradeIndex of grades" [value]="gradeIndex.id">{{gradeIndex.name}}</option>
       </select>
     </fieldset>
     <fieldset class="form-group">

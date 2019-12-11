@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EasylearnService} from '../../../services/data/easylearn.service';
+import {AppointmentService} from '../../../services/data/appointment/appointment.service';
+import {Router} from '@angular/router';
 
 export class Appointment {
   public id: number;
@@ -17,19 +19,38 @@ export class Appointment {
 })
 export class AppointmentComponent implements OnInit {
 
-  public appointments;
+  appointments: Appointment[];
+  message: string;
+  appointment: Appointment;
 
-  constructor(private easylearnService: EasylearnService) { }
+  constructor(private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit() {
-    this.getAppointments();
+    this.refreshAppointments();
   }
 
-  getAppointments() {
-    this.easylearnService.getAppointments().subscribe(
+  refreshAppointments() {
+    this.appointmentService.getAppointments().subscribe(
       data => {this.appointments = data; },
       err => console.error(err),
       () => console.log('Appointments loaded')
     );
+  }
+
+  deleteAppointment(id) {
+    this.appointmentService.deleteAppointment(id).subscribe(
+      response => {
+        this.message = `Delete of Appointment with ID: ${id} successful`;
+        this.refreshAppointments();
+      }
+    );
+  }
+
+  updateAppointment(id) {
+    this.router.navigate(['appointments', id]);
+  }
+
+  createAppointment() {
+    this.router.navigate(['appointments/create']);
   }
 }

@@ -24,7 +24,7 @@ export class CourseCreateComponent implements OnInit {
     {id: 7, name: 7},
     {id: 8, name: 8},
   ];
-  grade: number;
+  grade: number = 1;
   content: string;
   description: string;
 
