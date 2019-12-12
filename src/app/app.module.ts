@@ -27,6 +27,7 @@ import { CourseCreateComponent } from './components/course/course-create/course-
 import { CourseUpdateComponent } from './components/course/course-update/course-update.component';
 import { AppointmentCreateComponent } from './components/appointment/appointment-create/appointment-create.component';
 import { AppointmentUpdateComponent } from './components/appointment/appointment-update/appointment-update.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { AppointmentUpdateComponent } from './components/appointment/appointment
     CourseUpdateComponent,
     AppointmentCreateComponent,
     AppointmentUpdateComponent,
+    WelcomeComponent,
 
   ],
   imports: [
