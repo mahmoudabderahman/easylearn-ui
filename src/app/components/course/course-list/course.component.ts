@@ -44,7 +44,7 @@ export class CourseComponent implements OnInit {
   }
 
   updateCourse(id) {
-    this.router.navigate(['courses', id]);
+    this.router.navigate(['courses/edit', id]);
   }
 
   deleteCourse(id: number) {

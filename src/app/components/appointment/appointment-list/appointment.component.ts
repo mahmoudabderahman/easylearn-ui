@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {EasylearnService} from '../../../services/data/easylearn.service';
 import {AppointmentService} from '../../../services/data/appointment/appointment.service';
 import {Router} from '@angular/router';
 
@@ -47,7 +46,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   updateAppointment(id) {
-    this.router.navigate(['appointments', id]);
+    this.router.navigate(['appointments/edit', id]);
   }
 
   createAppointment() {

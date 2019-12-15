@@ -47,7 +47,7 @@ export class StudentComponent implements OnInit {
   }
 
   updateStudent(id) {
-    this.router.navigate(['students', id]);
+    this.router.navigate(['students/edit', id]);
   }
 
 

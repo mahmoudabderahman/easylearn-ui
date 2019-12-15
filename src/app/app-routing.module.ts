@@ -21,10 +21,11 @@ import {CourseCreateComponent} from './components/course/course-create/course-cr
 import {CourseUpdateComponent} from './components/course/course-update/course-update.component';
 import {AppointmentCreateComponent} from './components/appointment/appointment-create/appointment-create.component';
 import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: WelcomeComponent
   },
   {
     path: 'teachers',
@@ -35,7 +36,7 @@ const routes: Routes = [
     component: TeacherCreateComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'teachers/:id',
+    path: 'teachers/edit/:id',
     component: TeacherUpdateComponent, canActivate: [RouteGuardService]
   },
   {
@@ -47,7 +48,7 @@ const routes: Routes = [
     component: ParentCreateComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'parents/:id',
+    path: 'parents/edit/:id',
     component: ParentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
@@ -59,7 +60,7 @@ const routes: Routes = [
     component: StudentCreateComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'students/:id',
+    path: 'students/edit/:id',
     component: StudentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
@@ -71,7 +72,7 @@ const routes: Routes = [
     component: AppointmentCreateComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'appointments/:id',
+    path: 'appointments/edit/:id',
     component: AppointmentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
@@ -83,14 +84,17 @@ const routes: Routes = [
     component: CourseCreateComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'courses/:id',
+    path: 'courses/edit/:id',
     component: CourseUpdateComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',
     component: LoginComponent
   },
-
+  {
+    path: 'welcome',
+    component: WelcomeComponent
+  },
   {
     path: 'admin',
     component: AdminPageComponent, canActivate: [RouteGuardService]

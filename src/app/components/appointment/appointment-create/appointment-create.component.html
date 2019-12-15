@@ -10,7 +10,7 @@
       <label>Start Date</label>
       <!--<input type="datetime-local" #startDateTxt="ngModel" [ngModel]="startDate | date:'yyyy-MM-ddTHH:mm'"  [(ngModel)]="startDate" required="required"/>-->
 
-      <input type="datetime-local" #startDateTxt="ngModel"  [ngModel]="startDate|date:'yyyy-MM-ddTHH:mm' "
+      <input type="datetime-local" #startDateTxt="ngModel"  [ngModel]="startDate| date:'yyyy-MM-ddTHH:mm'"
              (ngModelChange)="startDate = $event" [(ngModel)]="startDate" class="form-control" name="startDate" required="required">
     </fieldset>
     <fieldset class="form-group">

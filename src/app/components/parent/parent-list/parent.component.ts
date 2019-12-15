@@ -59,7 +59,7 @@ export class ParentComponent implements OnInit {
   }
 
   updateParent(id) {
-    this.router.navigate(['parents', id]);
+    this.router.navigate(['parents/edit', id]);
   }
 
 

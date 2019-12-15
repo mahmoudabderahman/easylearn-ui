@@ -46,7 +46,7 @@ export class TeacherComponent implements OnInit {
   }
 
   updateTeacher(id) {
-    this.router.navigate(['teachers', id]);
+    this.router.navigate(['teachers/edit', id]);
   }
 
   createTeacher() {

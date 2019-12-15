@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {EasylearnService} from './services/data/easylearn.service';
 import { TeacherComponent } from './components/teacher/teacher-list/teacher.component';
 import { ParentComponent } from './components/parent/parent-list/parent.component';
 import { StudentComponent } from './components/student/student-list/student.component';
@@ -28,6 +27,7 @@ import { CourseUpdateComponent } from './components/course/course-update/course-
 import { AppointmentCreateComponent } from './components/appointment/appointment-create/appointment-create.component';
 import { AppointmentUpdateComponent } from './components/appointment/appointment-update/appointment-update.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import {EasylearnService} from './services/data/easylearn.service';
 
 
 @NgModule({

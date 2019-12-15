@@ -11,9 +11,10 @@ import {Appointment} from "../appointment-list/appointment.component";
 export class AppointmentCreateComponent implements OnInit {
 
   appointment: Appointment;
-  startDate: Date;
-  endDate: Date;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
   roomNumber: number;
+
 
   constructor(
     private appointmentService: AppointmentService,
