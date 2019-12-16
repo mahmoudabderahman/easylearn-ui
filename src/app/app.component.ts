@@ -7,12 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Easy Learn';
-  now: number;
-  constructor() {
-    setInterval(() => {
-      this.now = Date.now();
-      }, 1
 
-    );
-  }
 }
