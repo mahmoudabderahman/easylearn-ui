@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Parent} from '../../../components/parent/parent-list/parent.component';
 import {Course} from '../../../components/course/course-list/course.component';
+import {Appointment} from "../../../components/appointment/appointment-list/appointment.component";
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class CourseService {
 
   updateCourse(id: number, course: Course) {
     return this.http.put(`/server/api/v1/courses/${id}`, course);
+  }
+
+  assignAppointmentsToCourse(courseId: number, appointmentIds: Appointment[]) {
+    return this.http.post(`/server/api/v1/courses/${courseId}/appointments`, appointmentIds);
   }
 }

@@ -13,8 +13,8 @@
     </thead>
     <tbody>
     <tr *ngFor="let appointment of appointments">
-      <td>{{appointment.startDate | date: 'h:mm a EEE':'GMT'}}</td>
-      <td>{{appointment.endDate | date: 'h:mm a EEE':'GMT'}}</td>
+      <td>{{appointment.startDate | date: 'h:mm a EEE'}}</td>
+      <td>{{appointment.endDate | date: 'h:mm a EEE'}}</td>
       <td>{{appointment.roomNumber}}</td>
       <td><button (click)="updateAppointment(appointment.id)" class="btn btn-success">Update</button> </td>
       <td><button (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Delete</button> </td>

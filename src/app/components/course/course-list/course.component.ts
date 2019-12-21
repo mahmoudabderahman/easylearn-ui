@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../../../services/data/course/course.service';
 import {Router} from '@angular/router';
+import {Appointment} from "../../appointment/appointment-list/appointment.component";
 
 export class Course {
   public id: number;
+  appointment: Appointment[];
   constructor(
     public courseCode: string,
     public name: string,

@@ -29,6 +29,18 @@
       <label>Description</label>
       <input type="text" #descriptionTxt="ngModel" [(ngModel)]="course.description" class="form-control" name="description" required="required" minlength="6">
     </fieldset>
+    <fieldset class="form-group">
+        <label><h4>Assign Appointments To this Course</h4></label>
+        <div *ngFor="let appointment of appointments">
+          <label>
+            <input type="checkbox"
+                   name="appointments"
+                   value="{{appointment.id}}"
+                   [(ngModel)]="appointments"/>
+            From {{appointment.startDate| date: 'h:mm a EEE':'GMT'}} To {{appointment.endDate| date: 'h:mm a EEE':'GMT'}} In {{appointment.roomNumber}}
+          </label>
+        </div>
+    </fieldset>
     <button type="submit" class="btn btn-success" >Save</button>
   </form>
 </div>
