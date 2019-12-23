@@ -22,6 +22,7 @@ import {CourseUpdateComponent} from './components/course/course-update/course-up
 import {AppointmentCreateComponent} from './components/appointment/appointment-create/appointment-create.component';
 import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
 import {WelcomeComponent} from './components/welcome/welcome.component';
+import {AssignAppointmentsToCourseComponent} from "./components/course/assign-appointments-to-course/assign-appointments-to-course.component";
 const routes: Routes = [
   {
     path: '',
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'courses/edit/:id',
     component: CourseUpdateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/assignAppointmentsToCourse/:id',
+    component: AssignAppointmentsToCourseComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',

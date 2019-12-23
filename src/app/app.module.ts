@@ -28,6 +28,7 @@ import { AppointmentCreateComponent } from './components/appointment/appointment
 import { AppointmentUpdateComponent } from './components/appointment/appointment-update/appointment-update.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import {EasylearnService} from './services/data/easylearn.service';
+import { AssignAppointmentsToCourseComponent } from './components/course/assign-appointments-to-course/assign-appointments-to-course.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {EasylearnService} from './services/data/easylearn.service';
     AppointmentCreateComponent,
     AppointmentUpdateComponent,
     WelcomeComponent,
+    AssignAppointmentsToCourseComponent,
 
   ],
   imports: [

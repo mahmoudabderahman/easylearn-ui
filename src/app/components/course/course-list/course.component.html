@@ -12,6 +12,7 @@
       <th>Description</th>
       <th>Update</th>
       <th>Delete</th>
+      <th>Assign Appointments to this Course</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,8 @@
       <td>{{course.description}}</td>
       <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button> </td>
       <td><button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button> </td>
+      <td><button (click)="assignAppointments(course.id)" class="btn btn-danger">Assign Appointments</button> </td>
+
     </tr>
     </tbody>
   </table>
