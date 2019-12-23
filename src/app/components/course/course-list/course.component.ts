@@ -52,7 +52,7 @@ export class CourseComponent implements OnInit {
   deleteCourse(id: number) {
     this.courseService.deleteCourse(id).subscribe(
       response => {
-        this.message = `Delete of Course with code: ${id} successful`;
+        this.message = `Delete of Course with id: ${id} successful`;
         this.refreshCourses();
       }
     );

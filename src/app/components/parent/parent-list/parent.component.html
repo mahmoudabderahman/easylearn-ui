@@ -1,6 +1,8 @@
-<h1>Parents</h1>
+
 <div class="alert alert-success" *ngIf="message">{{message}}</div>
 <div class="container">
+  <h1>Parents - {{parents.length}}</h1>
+  <button (click)="createParent()" class="btn btn-success" id="create_btn">Create a new Parent</button>
   <table class="table">
     <thead>
     <tr>
@@ -21,5 +23,4 @@
     </tr>
     </tbody>
   </table>
-  <button (click)="createParent()" class="btn btn-success">Create a new Parent</button>
 </div>

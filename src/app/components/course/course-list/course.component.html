@@ -1,6 +1,7 @@
-<h1>Courses</h1>
-<div class="alert alert-success" *ngIf="message">{{message}}</div>
 <div class="container">
+  <h1>Courses - {{courses.length}}</h1>
+  <button (click)="createCourse()" class="btn btn-success" id="create_btn">Create a new Course</button>
+  <div class="alert alert-success" *ngIf="message" >{{message}}</div>
   <table class="table">
     <thead>
     <tr>
@@ -25,5 +26,4 @@
     </tr>
     </tbody>
   </table>
-  <button (click)="createCourse()" class="btn btn-success">Create a new Course</button>
 </div>

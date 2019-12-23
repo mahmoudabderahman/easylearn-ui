@@ -30,16 +30,29 @@
       <input type="text" #descriptionTxt="ngModel" [(ngModel)]="course.description" class="form-control" name="description" required="required" minlength="6">
     </fieldset>
     <fieldset class="form-group">
+      <!--<div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="appointments">
+        <label class="form-check-label" for="appointments">
+          Appointments
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+        <label class="form-check-label" for="defaultCheck2">
+          Disabled checkbox
+        </label>
+      </div>-->
         <label><h4>Assign Appointments To this Course</h4></label>
-        <div *ngFor="let appointment of appointments">
+        <div class="container" *ngFor="let appointment of appointments">
           <label>
             <input type="checkbox"
                    name="appointments"
                    value="{{appointment.id}}"
-                   [(ngModel)]="appointments"/>
-            From {{appointment.startDate| date: 'h:mm a EEE':'GMT'}} To {{appointment.endDate| date: 'h:mm a EEE':'GMT'}} In {{appointment.roomNumber}}
+                   [(ngModel)]="appointments" />
+            From {{appointment.startDate| date: 'h:mm a EEE'}} To {{appointment.endDate| date: 'h:mm a EEE'}} In {{appointment.roomNumber}}
           </label>
         </div>
+
     </fieldset>
     <button type="submit" class="btn btn-success" >Save</button>
   </form>
