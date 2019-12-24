@@ -38,7 +38,7 @@ export class CourseService {
     return this.http.put(`/server/api/v1/courses/${id}`, course);
   }
 
-  assignAppointmentsToCourse(id: number, appointmentIds: Appointment[]) {
+  assignAppointmentsToCourse(id: number, appointmentIds: []) {
     this.courseId = id;
     return this.http.post(`/server/api/v1/courses/${id}/appointments`, appointmentIds);
   }

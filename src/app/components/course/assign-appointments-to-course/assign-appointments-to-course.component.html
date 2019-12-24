@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <h4>Assigning appointments to the course with id: {{courseId}}</h4>
   <div formArrayName="appointments">
     <div *ngFor="let appointment of form.controls.appointments.controls; index as i">

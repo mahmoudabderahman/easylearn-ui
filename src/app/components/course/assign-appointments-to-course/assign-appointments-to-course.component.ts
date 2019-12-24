@@ -32,6 +32,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
         this.form = this.formBuilder.group({
           appointments: new FormArray(formControls)
         });
+
       }
     )
     //console.log(this.appointmentsData.length)
@@ -57,7 +58,20 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
   }
 
   submit() {
-
+    const selectedPreferences = this.form.value.appointments
+      .map((checked, index) => checked ? this.appointmentsData[index].id : null)
+      .filter(value => value !== null);
+    console.log(selectedPreferences.length)
+    this.courseService.assignAppointmentsToCourse(this.courseId, selectedPreferences)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.pagesRouter.navigate(['courses']);
+        }
+      );
+    //this.courseService.assignAppointmentsToCourse(this.courseId,selectedPreferences);
+    //this.pagesRouter.navigate(['courses'])
+    console.log(selectedPreferences)
   }
 
 }
