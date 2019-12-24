@@ -10,7 +10,7 @@ import { CourseComponent } from './components/course/course-list/course.componen
 import { AppointmentComponent } from './components/appointment/appointment-list/appointment.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserComponent } from './components/user/user.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
@@ -64,7 +64,8 @@ import { AssignAppointmentsToCourseComponent } from './components/course/assign-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EasylearnService],
   bootstrap: [AppComponent]

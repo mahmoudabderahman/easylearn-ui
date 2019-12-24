@@ -9,6 +9,8 @@ import {Appointment} from "../../../components/appointment/appointment-list/appo
 })
 export class CourseService {
 
+  courseId: number;
+
   constructor(private http: HttpClient) { }
 
   getCourses() {
@@ -16,10 +18,13 @@ export class CourseService {
   }
 
   deleteCourse(id) {
+    this.courseId = id;
     return this.http.delete(`/server/api/v1/courses/${id}`);
+
   }
 
   getCourse(id) {
+    this.courseId = id;
     return this.http.get<Course>(`/server/api/v1/courses/${id}`);
 
   }
@@ -29,10 +34,12 @@ export class CourseService {
   }
 
   updateCourse(id: number, course: Course) {
+    this.courseId = id;
     return this.http.put(`/server/api/v1/courses/${id}`, course);
   }
 
-  assignAppointmentsToCourse(courseId: number, appointmentIds: Appointment[]) {
-    return this.http.post(`/server/api/v1/courses/${courseId}/appointments`, appointmentIds);
+  assignAppointmentsToCourse(id: number, appointmentIds: Appointment[]) {
+    this.courseId = id;
+    return this.http.post(`/server/api/v1/courses/${id}/appointments`, appointmentIds);
   }
 }

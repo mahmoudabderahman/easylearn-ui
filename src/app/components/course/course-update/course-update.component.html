@@ -29,8 +29,8 @@
       <label>Description</label>
       <input type="text" #descriptionTxt="ngModel" [(ngModel)]="course.description" class="form-control" name="description" required="required" minlength="6">
     </fieldset>
-    <fieldset class="form-group">
-      <!--<div class="form-check">
+    <!--<fieldset class="form-group">
+      <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="appointments">
         <label class="form-check-label" for="appointments">
           Appointments
@@ -41,7 +41,7 @@
         <label class="form-check-label" for="defaultCheck2">
           Disabled checkbox
         </label>
-      </div>-->
+      </div>
         <label><h4>Assign Appointments To this Course</h4></label>
         <div class="container" *ngFor="let appointment of appointments">
           <label>
@@ -53,7 +53,7 @@
           </label>
         </div>
 
-    </fieldset>
+    </fieldset>-->
     <button type="submit" class="btn btn-success" >Save</button>
   </form>
 </div>

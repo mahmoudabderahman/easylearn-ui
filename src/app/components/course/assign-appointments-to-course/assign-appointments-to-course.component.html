@@ -1,1 +1,12 @@
-<p>assign-appointments-to-course works!</p>
+<form [formGroup]="form">
+  <h4>Assigning appointments to the course with id: {{courseId}}</h4>
+  <div formArrayName="appointments">
+    <div *ngFor="let appointment of form.controls.appointments.controls; index as i">
+      <input value="a7a" type="checkbox" [formControlName]="i">
+      From   {{appointmentsData[i].startDate| date: 'h:mm a EEE'}}   To   {{appointmentsData[i].endDate| date: 'h:mm a EEE'}}   In   {{appointmentsData[i].roomNumber}}
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </div>
+</form>
