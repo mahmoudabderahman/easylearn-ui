@@ -23,6 +23,8 @@ import {AppointmentCreateComponent} from './components/appointment/appointment-c
 import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
 import {WelcomeComponent} from './components/welcome/welcome.component';
 import {AssignAppointmentsToCourseComponent} from "./components/course/assign-appointments-to-course/assign-appointments-to-course.component";
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
+
 const routes: Routes = [
   {
     path: '',
@@ -121,5 +123,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}

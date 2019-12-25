@@ -29,7 +29,11 @@ import { AppointmentUpdateComponent } from './components/appointment/appointment
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import {EasylearnService} from './services/data/easylearn.service';
 import { AssignAppointmentsToCourseComponent } from './components/course/assign-appointments-to-course/assign-appointments-to-course.component';
-
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
+import {MatConfirmDialogComponent} from "./components/util/mat-confirm-dialog/mat-confirm-dialog.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatIcon} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -58,16 +62,22 @@ import { AssignAppointmentsToCourseComponent } from './components/course/assign-
     AppointmentUpdateComponent,
     WelcomeComponent,
     AssignAppointmentsToCourseComponent,
-
+    MatConfirmDialogComponent,
+    MatIcon
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [EasylearnService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MatConfirmDialogComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

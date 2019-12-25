@@ -4,6 +4,7 @@ import {AppointmentService} from "../../../services/data/appointment/appointment
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../../services/data/course/course.service";
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn} from "@angular/forms";
+import {Course} from "../course-list/course.component";
 
 @Component({
   selector: 'app-assign-appointments-to-course',
@@ -15,7 +16,10 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
   form: FormGroup;
   private appointmentsData: Appointment[];
   courseId: number;
+  courseName: string;
   appointments: any;
+  course: Course;
+  courseCode: string;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -25,6 +29,13 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.courseId = this.router.snapshot.params['id'];
+    this.courseService.getCourse(this.courseId).subscribe(
+      data => {
+        this.course = data;
+        this.courseName = data.name;
+        this.courseCode = data.courseCode;
+      }
+    );
     this.appointmentService.getAppointments().subscribe(
       data => {
         this.appointmentsData = data;
