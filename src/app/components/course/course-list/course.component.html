@@ -8,9 +8,8 @@
       <th>Code</th>
       <th>Name</th>
       <th>Grade</th>
-      <th>Content</th>
-      <th>Description</th>
-      <th>Actions</th>
+      <th [colSpan]="2">Description</th>
+      <!--<th>Actions</th>-->
     </tr>
     </thead>
     <tbody>
@@ -18,23 +17,14 @@
       <td>{{course.courseCode}}</td>
       <td>{{course.name}}</td>
       <td>{{course.grade}}</td>
-      <td>{{course.content}}</td>
       <td>{{course.description}}</td>
       <td>
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Please select an action
+          Actions
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item"  (click)="updateCourse(course.id)">Update</a>
-          <!--<a class="dropdown-item" (click)="deleteCourse(course.id)" mwlConfirmationPopover
-          [popoverTitle]="popoverTitle"
-          [popoverMessage]="popoverMessage"
-          placement="left"
-          (confirm)="deleteCourse(course.id)
-"         (cancel)="cancelClicked = true">
-            Delete
-          </a>-->
           <a class="dropdown-item" (click)="deleteCourse(course.id)">Delete</a>
           <a class="dropdown-item" (click)="assignAppointments(course.id)">Assign Appointments</a>
         </div>

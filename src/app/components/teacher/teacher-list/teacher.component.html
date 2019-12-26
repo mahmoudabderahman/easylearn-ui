@@ -6,17 +6,26 @@
     <thead>
     <tr>
       <th>Email</th>
-      <th>Full Name</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th [colSpan]="2">Full Name</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let teacher of teachers">
       <td>{{teacher.email}}</td>
       <td>{{teacher.firstName + ' ' + teacher.lastName}}</td>
-      <td><button (click)="updateTeacher(teacher.id)" class="btn btn-success">Update</button> </td>
-      <td><button (click)="deleteTeacher(teacher.id)" class="btn btn-danger">Delete</button> </td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"  (click)="updateTeacher(teacher.id)">Update</a>
+            <a class="dropdown-item" (click)="deleteTeacher(teacher.id)">Delete</a>
+          </div>
+        </div>
+      </td>
+      <!--<td><button (click)="updateTeacher(teacher.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteTeacher(teacher.id)" class="btn btn-danger">Delete</button> </td>-->
     </tr>
     </tbody>
   </table>

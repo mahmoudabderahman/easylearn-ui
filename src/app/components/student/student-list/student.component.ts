@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../../../services/data/student/student.service';
 import {Router} from '@angular/router';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 export class Student {
   public id: number;
@@ -23,7 +24,7 @@ export class StudentComponent implements OnInit {
   students: Student[];
   message: string;
   student: Student;
-  constructor(private service: StudentService, private router: Router) { }
+  constructor(private service: StudentService, private router: Router, private dialogService: MatConfirmDialogService) { }
 
   ngOnInit() {
     this.refreshStudents();
@@ -38,12 +39,19 @@ export class StudentComponent implements OnInit {
   }
 
   deleteStudent(id) {
-    this.service.deleteStudent(id).subscribe(
-      response => {
-        this.message = `Delete of Student with ID: ${id} successful`;
-        this.refreshStudents();
+    this.dialogService.openConfirmDialog("Are you sure that you want to delete this student?")
+      .afterClosed().subscribe(res =>
+    {
+      console.log(res)
+      if (res) {
+        this.service.deleteStudent(id).subscribe(
+          response => {
+            this.message = `Delete of Student with ID: ${id} successful`;
+            this.refreshStudents();
+          }
+        );
       }
-    );
+    })
   }
 
   updateStudent(id) {

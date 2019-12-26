@@ -5,7 +5,7 @@
     </button>
     <span class="content-span full-width">{{data.message}}</span>
   </div>
-  <button class="btn btn-danger" id="yes-button">Yes</button>
-  <button class="btn btn-success" id="no-button">No</button>
+  <button class="btn btn-danger" id="yes-button" [mat-dialog-close]="true">Yes</button>
+  <button class="btn btn-success" id="no-button" [mat-dialog-close]="false">No</button>
 
 </div>

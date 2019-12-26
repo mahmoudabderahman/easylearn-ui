@@ -8,9 +8,7 @@
     <tr>
       <th>Email</th>
       <th>Full Name</th>
-      <th>Parent type</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th [colSpan]="2">Parent type</th>
     </tr>
     </thead>
     <tbody>
@@ -18,8 +16,19 @@
       <td>{{parent.email}}</td>
       <td>{{parent.firstName + ' ' + parent.lastName}}</td>
       <td>{{parent.type}}</td>
-      <td><button (click)="updateParent(parent.id)" class="btn btn-success">Update</button> </td>
-      <td><button (click)="deleteParent(parent.id)" class="btn btn-danger">Delete</button> </td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"  (click)="updateParent(parent.id)">Update</a>
+            <a class="dropdown-item" (click)="deleteParent(parent.id)">Delete</a>
+          </div>
+        </div>
+      </td>
+     <!-- <td><button (click)="updateParent(parent.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteParent(parent.id)" class="btn btn-danger">Delete</button> </td>-->
     </tr>
     </tbody>
   </table>

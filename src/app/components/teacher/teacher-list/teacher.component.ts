@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TeacherService} from '../../../services/data/teacher/teacher.service';
 import {Router} from '@angular/router';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 export class Teacher {
   public id: number;
@@ -22,7 +23,7 @@ export class TeacherComponent implements OnInit {
   message: string;
   teacher: Teacher;
 
-  constructor(private teacherService: TeacherService, private router: Router) { }
+  constructor(private teacherService: TeacherService, private router: Router, private dialogService: MatConfirmDialogService) { }
 
   ngOnInit() {
     this.refreshTeachers();
@@ -37,12 +38,20 @@ export class TeacherComponent implements OnInit {
   }
 
   deleteTeacher(id) {
-    this.teacherService.deleteTeacher(id).subscribe(
-      response => {
-        this.message = `Delete of Teacher with ID: ${id} successful`;
-        this.refreshTeachers();
+    this.dialogService.openConfirmDialog("Are you sure that you want to delete this teacher?")
+      .afterClosed().subscribe(res =>
+    {
+      console.log(res)
+      if (res) {
+        this.teacherService.deleteTeacher(id).subscribe(
+          response => {
+            this.message = `Delete of Teacher with ID: ${id} successful`;
+            this.refreshTeachers();
+          }
+        );
       }
-    );
+    })
+
   }
 
   updateTeacher(id) {

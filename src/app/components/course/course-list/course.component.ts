@@ -57,16 +57,19 @@ export class CourseComponent implements OnInit {
   }
 
   deleteCourse(id: number) {
-    //this.dialogService.openConfirmDialog();
-      this.dialogService.openConfirmDialog("Are you sure that you want to delete this course?");
-      /*
-      this.courseService.deleteCourse(id).subscribe(
-        response => {
-          this.message = `Delete of Course with id: ${id} successful`;
-          this.refreshCourses();
+      this.dialogService.openConfirmDialog("Are you sure that you want to delete this course?")
+        .afterClosed().subscribe(res =>
+      {
+        console.log(res)
+        if (res) {
+          this.courseService.deleteCourse(id).subscribe(
+            response => {
+              this.message = `Delete of Course with id: ${id} successful`;
+              this.refreshCourses();
+            }
+          );
         }
-      );
-*/
+      })
 
   }
 

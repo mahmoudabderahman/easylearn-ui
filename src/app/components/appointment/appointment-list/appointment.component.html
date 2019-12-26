@@ -8,9 +8,8 @@
     <tr>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Room Number</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th >Room Number</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -18,8 +17,19 @@
       <td>{{appointment.startDate | date: 'h:mm a EEE'}}</td>
       <td>{{appointment.endDate | date: 'h:mm a EEE'}}</td>
       <td>{{appointment.roomNumber}}</td>
-      <td><button (click)="updateAppointment(appointment.id)" class="btn btn-success">Update</button> </td>
-      <td><button (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Delete</button> </td>
+      <td>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Actions
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item"  (click)="updateAppointment(appointment.id)">Update</a>
+          <a class="dropdown-item" (click)="deleteAppointment(appointment.id)">Delete</a>
+        </div>
+      </div>
+      </td>
+      <!--<td><button (click)="updateAppointment(appointment.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Delete</button> </td>-->
     </tr>
     </tbody>
   </table>

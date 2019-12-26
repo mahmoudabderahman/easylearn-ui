@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AppointmentService} from '../../../services/data/appointment/appointment.service';
 import {Router} from '@angular/router';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 export class Appointment {
   public id: number;
@@ -22,7 +23,7 @@ export class AppointmentComponent implements OnInit {
   message: string;
   appointment: Appointment;
 
-  constructor(private appointmentService: AppointmentService, private router: Router) { }
+  constructor(private appointmentService: AppointmentService, private router: Router, private dialogService: MatConfirmDialogService) { }
 
   ngOnInit() {
     this.refreshAppointments();
@@ -37,12 +38,20 @@ export class AppointmentComponent implements OnInit {
   }
 
   deleteAppointment(id) {
-    this.appointmentService.deleteAppointment(id).subscribe(
-      response => {
-        this.message = `Delete of Appointment with ID: ${id} successful`;
-        this.refreshAppointments();
+    this.dialogService.openConfirmDialog("Are you sure that you want to delete this appointment?")
+      .afterClosed().subscribe(res =>
+    {
+      console.log(res)
+      if (res) {
+        this.appointmentService.deleteAppointment(id).subscribe(
+          response => {
+            this.message = `Delete of Appointment with ID: ${id} successful`;
+            this.refreshAppointments();
+          }
+        );
       }
-    );
+    })
+
   }
 
   updateAppointment(id) {
