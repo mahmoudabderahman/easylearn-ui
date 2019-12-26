@@ -34,6 +34,10 @@ import {MatConfirmDialogComponent} from "./components/util/mat-confirm-dialog/ma
 import {MatDialogModule} from "@angular/material/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIcon} from "@angular/material/icon";
+import { AssignStudentsToAppointmentComponent } from './components/appointment/assign-students-to-appointment/assign-students-to-appointment.component';
+import { AssignStudentsToCourseComponent } from './components/course/assign-students-to-course/assign-students-to-course.component';
+import { AssignStudentsToParentComponent } from './components/parent/assign-students-to-parent/assign-students-to-parent.component';
+import { AssignTeacherToCourseComponent } from './components/teacher/assign-teacher-to-course/assign-teacher-to-course.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import {MatIcon} from "@angular/material/icon";
     WelcomeComponent,
     AssignAppointmentsToCourseComponent,
     MatConfirmDialogComponent,
-    MatIcon
+    MatIcon,
+    AssignStudentsToAppointmentComponent,
+    AssignStudentsToCourseComponent,
+    AssignStudentsToParentComponent,
+    AssignTeacherToCourseComponent
   ],
   imports: [
     BrowserModule,

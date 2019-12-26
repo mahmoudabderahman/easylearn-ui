@@ -70,10 +70,13 @@ export class CourseComponent implements OnInit {
           );
         }
       })
-
   }
 
   assignAppointments(id: number) {
     this.router.navigate(['courses/assignAppointmentsToCourse', id])
+  }
+
+  assignStudents(id: number) {
+    this.router.navigate(['courses/assignStudentsToCourse', id])
   }
 }
