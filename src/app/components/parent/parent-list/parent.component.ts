@@ -75,4 +75,8 @@ export class ParentComponent implements OnInit {
   createParent() {
     this.router.navigate(['parents/create']);
   }
+
+  assignStudents(id) {
+    this.router.navigate(['parents/assignStudentsToParent', id]);
+  }
 }

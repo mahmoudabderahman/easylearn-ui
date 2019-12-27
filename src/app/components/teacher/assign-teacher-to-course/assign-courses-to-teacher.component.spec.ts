@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssignTeacherToCourseComponent } from './assign-teacher-to-course.component';
+import { AssignCoursesToTeacherComponent } from './assign-courses-to-teacher.component';
 
 describe('AssignTeacherToCourseComponent', () => {
-  let component: AssignTeacherToCourseComponent;
-  let fixture: ComponentFixture<AssignTeacherToCourseComponent>;
+  let component: AssignCoursesToTeacherComponent;
+  let fixture: ComponentFixture<AssignCoursesToTeacherComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssignTeacherToCourseComponent ]
+      declarations: [ AssignCoursesToTeacherComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AssignTeacherToCourseComponent);
+    fixture = TestBed.createComponent(AssignCoursesToTeacherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

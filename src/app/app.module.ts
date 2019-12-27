@@ -37,7 +37,7 @@ import {MatIcon} from "@angular/material/icon";
 import { AssignStudentsToAppointmentComponent } from './components/appointment/assign-students-to-appointment/assign-students-to-appointment.component';
 import { AssignStudentsToCourseComponent } from './components/course/assign-students-to-course/assign-students-to-course.component';
 import { AssignStudentsToParentComponent } from './components/parent/assign-students-to-parent/assign-students-to-parent.component';
-import { AssignTeacherToCourseComponent } from './components/teacher/assign-teacher-to-course/assign-teacher-to-course.component';
+import { AssignCoursesToTeacherComponent } from './components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { AssignTeacherToCourseComponent } from './components/teacher/assign-teac
     AssignStudentsToAppointmentComponent,
     AssignStudentsToCourseComponent,
     AssignStudentsToParentComponent,
-    AssignTeacherToCourseComponent
+    AssignCoursesToTeacherComponent
   ],
   imports: [
     BrowserModule,

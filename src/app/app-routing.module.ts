@@ -26,7 +26,7 @@ import {AssignAppointmentsToCourseComponent} from "./components/course/assign-ap
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 import {AssignStudentsToAppointmentComponent} from "./components/appointment/assign-students-to-appointment/assign-students-to-appointment.component";
 import {AssignStudentsToParentComponent} from "./components/parent/assign-students-to-parent/assign-students-to-parent.component";
-import {AssignTeacherToCourseComponent} from "./components/teacher/assign-teacher-to-course/assign-teacher-to-course.component";
+import {AssignCoursesToTeacherComponent} from "./components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component";
 import {AssignStudentsToCourseComponent} from "./components/course/assign-students-to-course/assign-students-to-course.component";
 
 const routes: Routes = [
@@ -111,8 +111,8 @@ const routes: Routes = [
     component: AssignStudentsToParentComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'teachers/assignTeacherToCourse/:id',
-    component: AssignTeacherToCourseComponent, canActivate: [RouteGuardService]
+    path: 'teachers/assignCoursesToTeacher/:id',
+    component: AssignCoursesToTeacherComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',

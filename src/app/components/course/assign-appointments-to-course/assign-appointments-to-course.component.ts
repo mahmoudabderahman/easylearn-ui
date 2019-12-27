@@ -13,7 +13,7 @@ import {Course} from "../course-list/course.component";
 })
 export class AssignAppointmentsToCourseComponent implements OnInit {
 
-  form: FormGroup;
+  form: FormGroup;// = new FormGroup();
   private appointmentsData: Appointment[];
   courseId: number;
   courseName: string;

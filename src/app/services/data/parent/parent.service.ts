@@ -29,4 +29,8 @@ export class ParentService {
   updateParent(id: number, parent: Parent) {
     return this.http.put(`/server/api/v1/parents/${id}`, parent);
   }
+
+  assignStudentsToParent(id: number, studentIds: []) {
+    return this.http.post(`/server/api/v1/parents/${id}/students`, studentIds)
+  }
 }

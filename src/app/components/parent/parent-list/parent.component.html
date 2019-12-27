@@ -22,8 +22,10 @@
             Actions
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"  (click)="updateParent(parent.id)">Update</a>
+            <a class="dropdown-item" (click)="updateParent(parent.id)">Update</a>
             <a class="dropdown-item" (click)="deleteParent(parent.id)">Delete</a>
+            <a class="dropdown-item" (click)="assignStudents(parent.id)">Assign Students</a>
+
           </div>
         </div>
       </td>

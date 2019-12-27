@@ -61,4 +61,8 @@ export class AppointmentComponent implements OnInit {
   createAppointment() {
     this.router.navigate(['appointments/create']);
   }
+
+  assignStudents(id) {
+    this.router.navigate(['appointments/assignStudentsToAppointment', id])
+  }
 }

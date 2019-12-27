@@ -28,4 +28,9 @@ export class TeacherService {
   updateTeacher(id: number, teacher: Teacher) {
     return this.http.put(`/server/api/v1/teachers/update/${id}`, teacher);
   }
+
+  assignCoursesToTeacher(id: number, courseIds: []) {
+    return this.http.post(`/server/api/v1/teachers/${id}/courses`, courseIds)
+
+  }
 }

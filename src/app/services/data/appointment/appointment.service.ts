@@ -29,4 +29,8 @@ export class AppointmentService {
   updateAppointment(id: number, appointment: Appointment) {
     return this.http.put(`/server/api/v1/appointments/${id}`, appointment);
   }
+
+  assignStudentsToAppointment(id: number, studentIds: []) {
+    return this.http.post(`/server/api/v1/appointments/${id}/students`, studentIds)
+  }
 }
