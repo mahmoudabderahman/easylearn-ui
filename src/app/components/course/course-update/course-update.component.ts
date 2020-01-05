@@ -3,6 +3,7 @@ import {CourseService} from '../../../services/data/course/course.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Course} from '../course-list/course.component';
 import {Grade} from './grade';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-course-update',
@@ -35,6 +36,7 @@ export class CourseUpdateComponent implements OnInit {
     private courseService: CourseService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
+    private dialogService: MatConfirmDialogService
   ) { }
 
   ngOnInit() {
@@ -49,14 +51,20 @@ export class CourseUpdateComponent implements OnInit {
   }
 
   saveCourse() {
-    this.courseService.updateCourse(this.id, this.course)
-      .subscribe(
-        data => {
-          this.pagesRouter.navigate(['courses']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to save these changes?")
+      .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.courseService.updateCourse(this.id, this.course)
+            .subscribe(
+              data => {
+                this.pagesRouter.navigate(['courses']);
+              }
+            );
         }
-      );
+      }
+    )
+
   }
-
-
 
 }

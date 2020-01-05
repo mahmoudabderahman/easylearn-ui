@@ -5,6 +5,7 @@ import {AppointmentService} from "../../../services/data/appointment/appointment
 import {ActivatedRoute, Router} from "@angular/router";
 import {StudentService} from "../../../services/data/student/student.service";
 import {Appointment} from "../appointment-list/appointment.component";
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-assign-students-to-appointment',
@@ -29,7 +30,8 @@ export class AssignStudentsToAppointmentComponent implements OnInit {
     private router: ActivatedRoute,
     private pagesRouter: Router,
     private studentService: StudentService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialogService: MatConfirmDialogService
   ) {
     this.form = this.formBuilder.group({
       students: new FormArray([])
@@ -59,16 +61,25 @@ export class AssignStudentsToAppointmentComponent implements OnInit {
   }
 
   submit() {
-    const selectedPreferences = this.form.value.students
-      .map((checked, index) => checked? this.studentsData[index].id : null)
-      .filter(value => value != null);
-    console.log(selectedPreferences.length)
-    this.appointmentService.assignStudentsToAppointment(this.appointmentId, selectedPreferences)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.pagesRouter.navigate(['appointments']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to assign these students to this appointment?")
+      .afterClosed().subscribe(
+        res =>
+        {
+          if (res) {
+            const selectedPreferences = this.form.value.students
+              .map((checked, index) => checked? this.studentsData[index].id : null)
+              .filter(value => value != null);
+            console.log(selectedPreferences.length)
+            this.appointmentService.assignStudentsToAppointment(this.appointmentId, selectedPreferences)
+              .subscribe(
+                data => {
+                  console.log(data);
+                  this.pagesRouter.navigate(['appointments']);
+                }
+              )
+          }
         }
-      )
+    )
+
   }
 }

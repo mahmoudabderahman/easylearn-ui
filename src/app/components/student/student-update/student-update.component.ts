@@ -3,6 +3,7 @@ import {Student} from '../student-list/student.component';
 import {StudentService} from '../../../services/data/student/student.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-student-form',
@@ -20,6 +21,8 @@ export class StudentUpdateComponent implements OnInit {
     private studentService: StudentService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
+    private dialogService: MatConfirmDialogService
+
   ) { }
 
   ngOnInit() {
@@ -32,13 +35,19 @@ export class StudentUpdateComponent implements OnInit {
   }
 
   saveStudent() {
-
-    this.studentService.updateStudent(this.id, this.student)
-      .subscribe(
-        data => {
-          this.pagesRouter.navigate(['students']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to save these changes?")
+      .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.studentService.updateStudent(this.id, this.student)
+            .subscribe(
+              data => {
+                this.pagesRouter.navigate(['students']);
+              }
+            );
         }
-      );
+      }
+    )
   }
 
 }

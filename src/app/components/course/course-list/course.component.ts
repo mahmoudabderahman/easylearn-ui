@@ -27,17 +27,12 @@ export class CourseComponent implements OnInit {
   message: string;
   course: Course;
   id: number;
-  public popoverTitle: string = 'Confirmation';
-  public popoverMessage: string = 'Are you sure, that you want to delete this course?';
-  public confirmationClicked;
-  public cancelClicked;
+
 
   constructor(private courseService: CourseService, private router: Router, private dialogService: MatConfirmDialogService) { }
 
   ngOnInit() {
     this.refreshCourses();
-    this.confirmationClicked = false;
-    this.cancelClicked = false;
   }
 
   refreshCourses() {

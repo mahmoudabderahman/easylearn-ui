@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Teacher} from '../teacher-list/teacher.component';
 import {TeacherService} from '../../../services/data/teacher/teacher.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-teacher-update',
@@ -16,7 +17,9 @@ export class TeacherUpdateComponent implements OnInit {
   constructor(
     private teacherService: TeacherService,
     private router: ActivatedRoute,
-    private pagesRouter: Router
+    private pagesRouter: Router,
+    private dialogService: MatConfirmDialogService
+
   ) { }
 
   ngOnInit() {
@@ -29,12 +32,19 @@ export class TeacherUpdateComponent implements OnInit {
   }
 
   saveTeacher() {
-    this.teacherService.updateTeacher(this.id, this.teacher)
-      .subscribe(
-        data => {
-          this.pagesRouter.navigate(['teachers']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to save these changes?")
+      .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.teacherService.updateTeacher(this.id, this.teacher)
+            .subscribe(
+              data => {
+                this.pagesRouter.navigate(['teachers']);
+              }
+            );
         }
-      );
+      }
+    )
   }
 
 }

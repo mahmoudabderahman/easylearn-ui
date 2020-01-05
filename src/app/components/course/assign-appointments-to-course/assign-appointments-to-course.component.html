@@ -1,10 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <h4>Assigning appointments to the course with Code: {{courseCode}}</h4>
-  <div formArrayName="appointments">
-    <div *ngFor="let appointment of form.controls.appointments.controls; index as i">
-      <input  type="checkbox" [formControlName]="i">
-      From   {{appointmentsData[i].startDate| date: 'h:mm a EEE'}}   To   {{appointmentsData[i].endDate| date: 'h:mm a EEE'}}   In   {{appointmentsData[i].roomNumber}}
-    </div>
+  <div formArrayName="appointments" *ngFor="let appointment of form.controls.appointments.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    From {{appointmentsData[i].startDate | date: 'h:mm a EEE'}} to {{appointmentsData[i].endDate | date: 'h:mm a EEE'}} in room {{appointmentsData[i].roomNumber}}
   </div>
   <div>
     <button type="submit" class="btn btn-success" >Save</button>

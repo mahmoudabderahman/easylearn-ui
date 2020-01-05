@@ -28,6 +28,9 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     private courseService: CourseService,
     private formBuilder: FormBuilder
   ) {
+    this.form = this.formBuilder.group({
+      appointments: new FormArray([])
+    })
     this.courseId = this.router.snapshot.params['id'];
     this.courseService.getCourse(this.courseId).subscribe(
       data => {
@@ -39,9 +42,10 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     this.appointmentService.getAppointments().subscribe(
       data => {
         this.appointmentsData = data;
-        const formControls = this.appointmentsData.map(control => new FormControl(false));
-        this.form = this.formBuilder.group({
-          appointments: new FormArray(formControls)
+        this.appointmentsData.forEach((o, i) => {
+          const control = new FormControl(i == 0);
+          (this.form.controls.appointments as FormArray).push(control);
+
         });
 
       }

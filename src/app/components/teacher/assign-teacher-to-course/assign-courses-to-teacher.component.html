@@ -1,1 +1,17 @@
-<p>assign-teacher-to-course works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" >
+  <h4>Assigning courses to the teacher with first name: {{teacherFirstName}} And last name: {{teacherLastName}}</h4>
+  <!--<div formArrayName="students">
+    <div *ngFor="let student of form.controls.students.controls; index as i">
+      <input  type="checkbox" [formControlName]="i">
+      {{studentsData[i].firstName + ' ' + studentsData[i].lastName}}
+    </div>
+  </div>-->
+  <div formArrayName="courses" *ngFor="let course of form.controls.courses.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    Course code: {{coursesData[i].courseCode + ' '}} Course name: {{coursesData[i].name + ' '}} Grade: {{coursesData[i].grade + ' '}}
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </div>
+</form>

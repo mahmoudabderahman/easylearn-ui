@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Parent, ParentType} from '../parent-list/parent.component';
 import {ParentService} from '../../../services/data/parent/parent.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-parent-update',
@@ -20,6 +21,8 @@ export class ParentUpdateComponent implements OnInit {
     private parentService: ParentService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
+    private dialogService: MatConfirmDialogService
+
   ) { }
 
   ngOnInit() {
@@ -34,13 +37,22 @@ export class ParentUpdateComponent implements OnInit {
 
 
   saveParent() {
-    this.parentService.updateParent(this.id, this.parent)
-      .subscribe(
-        data => {
-          this.pagesRouter.navigate(['parents']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to save these changes?")
+      .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.parentService.updateParent(this.id, this.parent)
+            .subscribe(
+              data => {
+                this.pagesRouter.navigate(['parents']);
+              }
+            );
         }
-      );
+
+      }
+    )
   }
+
 
   updateParentTypeSelections() {
     if (this.selectedType === ParentType.FATHER) {
