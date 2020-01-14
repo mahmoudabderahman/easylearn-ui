@@ -45,7 +45,7 @@ export class AssignStudentsToAppointmentComponent implements OnInit {
         this.appointmentRoom = data.roomNumber;
       }
     );
-    this.studentService.getStudents().subscribe(
+    this.studentService.getStudentsNotAllocatedToThisAppointment(this.appointmentId).subscribe(
       data => {
         this.studentsData = data;
         this.studentsData.forEach((o, i) =>

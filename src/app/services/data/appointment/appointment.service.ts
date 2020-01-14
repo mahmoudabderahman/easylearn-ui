@@ -10,11 +10,11 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   getAppointmentsAllocatedByCourse() {
-    return this.http.get<Appointment[]>('/server/api/v1/appointments');
+    return this.http.get<Appointment[]>('/server/api/v1/appointments?ideal=true');
   }
 
   getAppointments() {
-    return this.http.get<Appointment[]>('/server/api/v1/appointments?ideal=true');
+    return this.http.get<Appointment[]>('/server/api/v1/appointments');
   }
 
   deleteAppointment(id) {

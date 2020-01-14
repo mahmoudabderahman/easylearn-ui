@@ -11,13 +11,24 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    return this.http.get<Student[]>('/server/api/v1/students/*');
+    return this.http.get<Student[]>('/server/api/v1/students');
   }
 
   getStudentsAllocatedToParent() {
-    return this.http.get<Student[]>('server/api/v1/students')
+    return this.http.get<Student[]>('server/api/v1/students?parentAllocated=false');
   }
 
+  getStudentsAllocatedToCourse() {
+    return this.http.get<Student[]>('server/api/v1/students?courseAllocated=true');
+  }
+
+  getStudentsNotAllocatedToThisAppointment(appointmentId: number) {
+    return this.http.get<Student[]>(`server/api/v1/students?appointmentsAllocated=false&appointmentId=${appointmentId}`);
+  }
+
+  getStudentsNotAllocatedToThisCourse(courseId: number) {
+    return this.http.get<Student[]>(`server/api/v1/students?courseAllocated=false&courseId=${courseId}`);
+  }
   deleteStudent(id) {
     return this.http.delete(`/server/api/v1/students/${id}`);
   }

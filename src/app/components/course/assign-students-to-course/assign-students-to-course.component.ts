@@ -44,7 +44,7 @@ export class AssignStudentsToCourseComponent implements OnInit {
         this.courseGrade = data.grade;
       }
     );
-    this.studentService.getStudents().subscribe(
+    this.studentService.getStudentsNotAllocatedToThisCourse(this.courseId).subscribe(
       data => {
         this.studentsData = data;
         this.studentsData.forEach((o, i) =>
