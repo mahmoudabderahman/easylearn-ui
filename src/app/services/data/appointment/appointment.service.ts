@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Course} from '../../../components/course/course-list/course.component';
 import {Appointment} from '../../../components/appointment/appointment-list/appointment.component';
 
 @Injectable({
@@ -10,8 +9,12 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) { }
 
-  getAppointments() {
+  getAppointmentsAllocatedByCourse() {
     return this.http.get<Appointment[]>('/server/api/v1/appointments');
+  }
+
+  getAppointments() {
+    return this.http.get<Appointment[]>('/server/api/v1/appointments?ideal=true');
   }
 
   deleteAppointment(id) {

@@ -11,7 +11,11 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    return this.http.get<Student[]>('/server/api/v1/students');
+    return this.http.get<Student[]>('/server/api/v1/students/*');
+  }
+
+  getStudentsAllocatedToParent() {
+    return this.http.get<Student[]>('server/api/v1/students')
   }
 
   deleteStudent(id) {

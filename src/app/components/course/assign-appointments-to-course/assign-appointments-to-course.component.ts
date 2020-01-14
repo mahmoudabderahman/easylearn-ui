@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../../services/data/course/course.service";
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn} from "@angular/forms";
 import {Course} from "../course-list/course.component";
+import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
 
 @Component({
   selector: 'app-assign-appointments-to-course',
@@ -26,7 +27,8 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     private router: ActivatedRoute,
     private pagesRouter: Router,
     private courseService: CourseService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialogService: MatConfirmDialogService,
   ) {
     this.form = this.formBuilder.group({
       appointments: new FormArray([])
@@ -39,7 +41,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
         this.courseCode = data.courseCode;
       }
     );
-    this.appointmentService.getAppointments().subscribe(
+    this.appointmentService.getAppointmentsAllocatedByCourse() .subscribe(
       data => {
         this.appointmentsData = data;
         this.appointmentsData.forEach((o, i) => {
@@ -55,38 +57,28 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*
-    this.courseId = this.router.snapshot.params['id'];
-    this.appointmentService.getAppointments().subscribe(
-      data => {this.appointmentsData = data;}
-    )
-    this.form = this.formBuilder.group({
-        appointments: new FormArray([])
-      }
-    );
-
-    this.appointmentsData.forEach((o, i) => {
-      const control = new FormControl(i === 0);
-      (this.form.controls.appointments as FormArray).push(control);
-    });
-    */
   }
 
   submit() {
+
     const selectedPreferences = this.form.value.appointments
       .map((checked, index) => checked ? this.appointmentsData[index].id : null)
       .filter(value => value !== null);
     console.log(selectedPreferences.length)
-    this.courseService.assignAppointmentsToCourse(this.courseId, selectedPreferences)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.pagesRouter.navigate(['courses']);
+    this.dialogService.openConfirmDialog("Are you sure that you want to allocate these appointments to this course?")
+      .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.courseService.assignAppointmentsToCourse(this.courseId, selectedPreferences)
+            .subscribe(
+              data => {
+                console.log(data);
+                this.pagesRouter.navigate(['courses']);
+              }
+            );
         }
-      );
-    //this.courseService.assignAppointmentsToCourse(this.courseId,selectedPreferences);
-    //this.pagesRouter.navigate(['courses'])
-    console.log(selectedPreferences)
+      }
+    )
   }
 
 }
