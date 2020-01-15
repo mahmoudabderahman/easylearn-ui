@@ -41,7 +41,7 @@ export class AssignCoursesToTeacherComponent implements OnInit {
         this.teacherLastName = data.lastName;
       }
     );
-    this.courseService.getCourses().subscribe(
+    this.courseService.getCoursesNotAllocatedToTeacher().subscribe(
       data => {
         this.coursesData = data;
         this.coursesData.forEach((o, i) =>

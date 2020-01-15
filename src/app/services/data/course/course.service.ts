@@ -14,8 +14,13 @@ export class CourseService {
   constructor(private http: HttpClient) { }
 
   getCourses() {
-    return this.http.get<Course[]>('/server/api/v1/courses');
+    return this.http.get<Course[]>('/server/api/v1/courses?ideal=false');
   }
+
+  getCoursesNotAllocatedToTeacher() {
+    return this.http.get<Course[]>('/server/api/v1/courses?ideal=true');
+  }
+
 
   deleteCourse(id) {
     this.courseId = id;
