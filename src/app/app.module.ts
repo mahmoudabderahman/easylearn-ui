@@ -38,6 +38,11 @@ import { AssignStudentsToAppointmentComponent } from './components/appointment/a
 import { AssignStudentsToCourseComponent } from './components/course/assign-students-to-course/assign-students-to-course.component';
 import { AssignStudentsToParentComponent } from './components/parent/assign-students-to-parent/assign-students-to-parent.component';
 import { AssignCoursesToTeacherComponent } from './components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component';
+import { ParentProfileComponent } from './components/profiles/parent-profile/parent-profile.component';
+import { TeacherProfileComponent } from './components/profiles/teacher-profile/teacher-profile.component';
+import { StudentProfileComponent } from './components/profiles/student-profile/student-profile.component';
+import { AppointmentProfileComponent } from './components/profiles/appointment-profile/appointment-profile.component';
+import { CourseProfileComponent } from './components/profiles/course-profile/course-profile.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +76,12 @@ import { AssignCoursesToTeacherComponent } from './components/teacher/assign-tea
     AssignStudentsToAppointmentComponent,
     AssignStudentsToCourseComponent,
     AssignStudentsToParentComponent,
-    AssignCoursesToTeacherComponent
+    AssignCoursesToTeacherComponent,
+    ParentProfileComponent,
+    TeacherProfileComponent,
+    StudentProfileComponent,
+    AppointmentProfileComponent,
+    CourseProfileComponent
   ],
   imports: [
     BrowserModule,

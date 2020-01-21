@@ -28,6 +28,10 @@ import {AssignStudentsToAppointmentComponent} from "./components/appointment/ass
 import {AssignStudentsToParentComponent} from "./components/parent/assign-students-to-parent/assign-students-to-parent.component";
 import {AssignCoursesToTeacherComponent} from "./components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component";
 import {AssignStudentsToCourseComponent} from "./components/course/assign-students-to-course/assign-students-to-course.component";
+import {TeacherProfileComponent} from "./components/profiles/teacher-profile/teacher-profile.component";
+import {ParentProfileComponent} from "./components/profiles/parent-profile/parent-profile.component";
+import {StudentProfileComponent} from "./components/profiles/student-profile/student-profile.component";
+import {CourseProfileComponent} from "./components/profiles/course-profile/course-profile.component";
 
 const routes: Routes = [
   {
@@ -47,6 +51,10 @@ const routes: Routes = [
     component: TeacherUpdateComponent, canActivate: [RouteGuardService]
   },
   {
+    path: 'teachers/profile/:id',
+    component: TeacherProfileComponent, canActivate: [RouteGuardService]
+  },
+  {
     path: 'parents',
     component: ParentComponent, canActivate: [RouteGuardService]
   },
@@ -59,6 +67,10 @@ const routes: Routes = [
     component: ParentUpdateComponent, canActivate: [RouteGuardService]
   },
   {
+    path: 'parents/profile/:id',
+    component: ParentProfileComponent, canActivate: [RouteGuardService]
+  },
+  {
     path: 'students',
     component: StudentComponent, canActivate: [RouteGuardService]
   },
@@ -69,6 +81,10 @@ const routes: Routes = [
   {
     path: 'students/edit/:id',
     component: StudentUpdateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'students/profile/:id',
+    component: StudentProfileComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'appointments',
@@ -93,6 +109,10 @@ const routes: Routes = [
   {
     path: 'courses/edit/:id',
     component: CourseUpdateComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/profile/:id',
+    component: CourseProfileComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'courses/assignAppointmentsToCourse/:id',
