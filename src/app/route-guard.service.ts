@@ -2,13 +2,13 @@
  * This service is responsible for checking if a user can see logged in users pages.
  */
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthenticationService} from './services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService {
+export class RouteGuardService implements CanActivate{
 
   constructor(private router: Router, private auth: AuthenticationService) { }
 
