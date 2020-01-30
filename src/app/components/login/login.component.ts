@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../services/authentication.service';
+import {TokenStorageService} from '../../services/tokenStorageService';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {AuthenticationService} from '../../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthenticationService) {
+  constructor(private router: Router, private auth: AuthenticationService, private tokenStorageService: TokenStorageService) {
   }
 
   username: string;
@@ -21,17 +22,18 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    (this.auth.authenticate(this.username, this.password).subscribe(
-        data => {
-          this.router.navigate(['admin']);
-          this.invalidLogin = false;
-        },
-        error => {
-          this.invalidLogin = true;
+    this.auth.authenticate(this.username, this.password).subscribe(
+      data => {
+        this.tokenStorageService.saveToken(data.accessToken);
+        this.tokenStorageService.saveUser(data);
 
+        this.invalidLogin = false;
+        this.router.navigate(['admin']);
 
-        }
-      )
+      },
+      error => {
+        this.invalidLogin = true;
+      }
     );
 
   }

@@ -1,5 +1,5 @@
 <h1>
   Welcome to Easy Learn Application
 </h1>
-<a *ngIf="authService.isUserLoggedIn()" routerLink="/logout" class="nav-link"><button class="btn btn-danger">Logout</button></a>
-<a *ngIf="!authService.isUserLoggedIn()" routerLink="/login" class="nav-link"><button class="btn btn-danger">Login</button></a>
+<a *ngIf="tokenStorageService.getToken()" routerLink="/logout" class="nav-link"><button class="btn btn-danger">Logout</button></a>
+<a *ngIf="!tokenStorageService.getToken()" routerLink="/login" class="nav-link"><button class="btn btn-danger">Login</button></a>

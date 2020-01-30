@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
+import {TokenStorageService} from '../../services/tokenStorageService';
 
 @Component({
   selector: 'app-welcome',
@@ -10,11 +11,12 @@ export class WelcomeComponent implements OnInit {
 
   isUserLoggedIn: boolean = false;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
-    this.isUserLoggedIn = this.authService.isUserLoggedIn();
-  }
+    if (this.tokenStorageService.getToken()) {
+      this.isUserLoggedIn = true;
+    }  }
 
 
 }

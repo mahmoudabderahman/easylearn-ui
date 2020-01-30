@@ -1,19 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-export class User {
-  constructor(
-    public status: string,
-  ) {}
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-}
-
-export class JwtResponse {
-  constructor(
-    public jwttoken: string,
-  ) {}
-
-}
+const AUTH_API = 'http://localhost:8888/authenticate';
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -23,25 +15,9 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
   }
 
-  authenticate(username, password) {
-    return this.http.post<any>('http://localhost:8888/authenticate', {username, password}).pipe(
-      map(
-        userData => {
-          sessionStorage.setItem('username', username);
-          const tokenStr = 'Bearer ' + userData.token;
-          sessionStorage.setItem('token', tokenStr);
-          return userData;
-        }
-      )
-    );
+  authenticate(username, password): Observable<any> {
+    return this.http.post<any>(AUTH_API, {username, password}, httpOptions);
   }
 
-  isUserLoggedIn() {
-    const user = sessionStorage.getItem('username');
-    return !(user === null);
-  }
 
-  logout() {
-    sessionStorage.removeItem('username');
-  }
 }

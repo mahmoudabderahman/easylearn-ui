@@ -3,15 +3,15 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div><a href="" class="navbar-brand">EasyLearn</a> </div>
     <ul class="navbar-nav">
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/students" class="nav-link">Students</a> </li>
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/teachers" class="nav-link">Teachers</a> </li>
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/parents" class="nav-link">Parents</a> </li>
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/courses" class="nav-link">Courses</a> </li>
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/appointments" class="nav-link">Appointments</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/students" class="nav-link">Students</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/teachers" class="nav-link">Teachers</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/parents" class="nav-link">Parents</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/courses" class="nav-link">Courses</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/appointments" class="nav-link">Appointments</a> </li>
     </ul>
     <ul class="navbar-nav navbar-collapse justify-content-end">
-      <li><a *ngIf="!auth.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a> </li>
-      <li><a *ngIf="auth.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a> </li>
+      <li><a *ngIf="!tokenStorage.getToken()" routerLink="/login" class="nav-link">Login</a> </li>
+      <li><a *ngIf="tokenStorage.getToken()" routerLink="/logout" class="nav-link">Logout</a> </li>
     </ul>
   </nav>
 </header>

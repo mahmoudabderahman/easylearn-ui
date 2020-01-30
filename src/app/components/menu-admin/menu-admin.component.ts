@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
+import {TokenStorageService} from '../../services/tokenStorageService';
 
 @Component({
   selector: 'app-menu',
@@ -10,10 +11,12 @@ export class MenuAdminComponent implements OnInit {
 
   isUserLoggedIn: boolean = false;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    this.isUserLoggedIn = this.auth.isUserLoggedIn();
+    if (this.tokenStorage.getToken()) {
+      this.isUserLoggedIn = true;
+    }
   }
 
 }
