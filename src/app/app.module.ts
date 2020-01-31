@@ -43,6 +43,7 @@ import { TeacherProfileComponent } from './components/profiles/teacher-profile/t
 import { StudentProfileComponent } from './components/profiles/student-profile/student-profile.component';
 import { AppointmentProfileComponent } from './components/profiles/appointment-profile/appointment-profile.component';
 import { CourseProfileComponent } from './components/profiles/course-profile/course-profile.component';
+import {authInterceptorProviders} from "./services/BasicAuthHtppInterceptorService";
 
 @NgModule({
   declarations: [
@@ -92,7 +93,7 @@ import { CourseProfileComponent } from './components/profiles/course-profile/cou
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [EasylearnService],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
   entryComponents: [MatConfirmDialogComponent]
 })

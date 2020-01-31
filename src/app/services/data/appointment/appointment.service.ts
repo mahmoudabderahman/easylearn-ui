@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Appointment} from '../../../components/appointment/appointment-list/appointment.component';
+import {Observable} from "rxjs";
+import {TokenStorageService} from "../../tokenStorageService";
+const API_URL = '/server/api/v1/appointments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
 
-  getAppointmentsAllocatedByCourse() {
-    return this.http.get<Appointment[]>('/server/api/v1/appointments?ideal=true');
+  getAppointmentsAllocatedByCourse() : Observable<any> {
+    let token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders({Authorization: 'Bearer ' + token});
+    return this.http.get<Appointment[]>(API_URL + '?ideal=true', {headers});
   }
 
-  getAppointments() {
+  getAppointments() : Observable<any> {
     return this.http.get<Appointment[]>('/server/api/v1/appointments');
   }
 

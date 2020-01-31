@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Parent} from '../../../components/parent/parent-list/parent.component';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ParentService {
 
   constructor(private http: HttpClient) { }
 
-  getParents() {
+  getParents() : Observable<any> {
     return this.http.get<Parent[]>('/server/api/v1/parents');
   }
 

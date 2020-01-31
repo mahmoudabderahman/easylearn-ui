@@ -14,6 +14,7 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
     let authReq = req;
     const token = this.token.getToken();
     if (token != null) {
+      console.log(token)
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
     }
     return next.handle(authReq);

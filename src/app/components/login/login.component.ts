@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     this.auth.authenticate(this.username, this.password).subscribe(
       data => {
-        this.tokenStorageService.saveToken(data.accessToken);
+        console.log(data.accessToken)
+        this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data);
 
         this.invalidLogin = false;
