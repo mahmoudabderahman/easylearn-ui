@@ -7,7 +7,6 @@ import {AppointmentComponent} from './components/appointment/appointment-list/ap
 import {CourseComponent} from './components/course/course-list/course.component';
 import {LoginComponent} from './components/login/login.component';
 import {AdminPageComponent} from './components/admin-page/admin-page.component';
-import {UserComponent} from './components/user/user.component';
 import {RouteGuardService} from './route-guard.service';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
 import {StudentCreateComponent} from './components/student/student-create/student-create.component';
@@ -150,10 +149,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPageComponent, canActivate: [RouteGuardService]
-  },
-  {
-    path: 'user',
-    component: UserComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'logout',

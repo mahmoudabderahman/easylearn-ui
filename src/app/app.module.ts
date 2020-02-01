@@ -11,7 +11,6 @@ import {AppointmentComponent} from './components/appointment/appointment-list/ap
 import {LoginComponent} from './components/login/login.component';
 import {AdminPageComponent} from './components/admin-page/admin-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {UserComponent} from './components/user/user.component';
 import {ErrorComponent} from './components/error/error.component';
 import {MenuAdminComponent} from './components/menu-admin/menu-admin.component';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
@@ -44,7 +43,8 @@ import {StudentProfileComponent} from './components/profiles/student-profile/stu
 import {AppointmentProfileComponent} from './components/profiles/appointment-profile/appointment-profile.component';
 import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorService';
-import { FindAppointmentsOfAStudentCoursesComponent } from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
+import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
+import { FindCoursesOfStudentComponent } from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,6 @@ import { FindAppointmentsOfAStudentCoursesComponent } from './components/profile
     AppointmentComponent,
     LoginComponent,
     AdminPageComponent,
-    UserComponent,
     ErrorComponent,
     MenuAdminComponent,
     StudentUpdateComponent,
@@ -84,7 +83,8 @@ import { FindAppointmentsOfAStudentCoursesComponent } from './components/profile
     StudentProfileComponent,
     AppointmentProfileComponent,
     CourseProfileComponent,
-    FindAppointmentsOfAStudentCoursesComponent
+    FindAppointmentsOfAStudentCoursesComponent,
+    FindCoursesOfStudentComponent
   ],
   imports: [
     BrowserModule,
