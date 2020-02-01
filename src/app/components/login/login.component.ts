@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage = 'Invalid Credentials';
   invalidLogin = false;
   userType: string;
+  id: number;
 
   ngOnInit() {
     if (this.tokenStorageService.getToken()) {
@@ -31,14 +32,24 @@ export class LoginComponent implements OnInit {
     this.auth.authenticate(this.username, this.password).subscribe(
       data => {
         console.log(data.token);
-        console.log(data)
+        console.log(data);
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data);
         this.invalidLogin = false;
-        this.userType = this.tokenStorageService.getUser().UserType;
-        console.log(data.userType);
-        console.log(this.userType);
-        this.router.navigate(['admin']);
+        this.userType = data.userType;
+        this.id = data.id;
+
+        if (this.userType === 'STUDENT') {
+          console.log('Inside if');
+          this.router.navigate(['students/profile', this.id]);
+        } else if (this.userType === 'ADMIN') {
+          this.router.navigate(['admin']);
+        } else if (this.userType === 'TEACHER') {
+          this.router.navigate(['teachers/profile', this.id]);
+        } else if (this.userType === 'PARENT') {
+          this.router.navigate(['parents/profile', this.id]);
+        }
+
 
       },
       error => {

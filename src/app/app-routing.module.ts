@@ -32,6 +32,7 @@ import {TeacherProfileComponent} from './components/profiles/teacher-profile/tea
 import {ParentProfileComponent} from './components/profiles/parent-profile/parent-profile.component';
 import {StudentProfileComponent} from './components/profiles/student-profile/student-profile.component';
 import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
+import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
 
 const routes: Routes = [
   {
@@ -125,6 +126,10 @@ const routes: Routes = [
   {
     path: 'appointments/assignStudentsToAppointment/:id',
     component: AssignStudentsToAppointmentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'appointments/student/:id',
+    component: FindAppointmentsOfAStudentCoursesComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'parents/assignStudentsToParent/:id',

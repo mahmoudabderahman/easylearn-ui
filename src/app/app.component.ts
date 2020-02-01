@@ -16,13 +16,14 @@ export class AppComponent implements OnInit {
   isStudent: boolean;
   isTeacher: boolean;
   isParent: boolean;
+  isAdmin: boolean;
 
   constructor(private tokenStorageService: TokenStorageService) {
   }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
-    console.log(this.tokenStorageService.getToken());
+    //console.log(this.tokenStorageService.getToken());
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.UserType = user.UserType;
@@ -30,9 +31,10 @@ export class AppComponent implements OnInit {
       this.isParent = this.UserType.includes('PARENT');
       this.isStudent = this.UserType.includes('STUDENT');
       this.isTeacher = this.UserType.includes('TEACHER');
-      console.log(this.isTeacher);
-      console.log(this.isStudent);
-      console.log(this.isParent);
+      this.isAdmin = this.UserType.includes('ADMIN')
+      //console.log(this.isTeacher);
+      //console.log(this.isStudent);
+      //console.log(this.isParent);
       this.username = user.username;
     }
   }

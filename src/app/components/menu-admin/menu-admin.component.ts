@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {TokenStorageService} from '../../services/tokenStorageService';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AppointmentService} from '../../services/data/appointment/appointment.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,8 +12,12 @@ import {TokenStorageService} from '../../services/tokenStorageService';
 export class MenuAdminComponent implements OnInit {
 
   isUserLoggedIn: boolean = false;
+  id: number;
 
-  constructor(private auth: AuthenticationService, private tokenStorage: TokenStorageService) {
+  constructor(private auth: AuthenticationService,
+              private tokenStorage: TokenStorageService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -20,4 +26,8 @@ export class MenuAdminComponent implements OnInit {
     }
   }
 
+  showAppointmentsOfAStudent(id) {
+    this.router.navigate(['appointments/student', id]);
+    //this.appointmentService.findAllAppointmentsOfStudentCourses(this.router.snapshot.params['id'])
+  }
 }

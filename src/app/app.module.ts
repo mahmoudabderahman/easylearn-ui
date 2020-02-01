@@ -44,6 +44,7 @@ import {StudentProfileComponent} from './components/profiles/student-profile/stu
 import {AppointmentProfileComponent} from './components/profiles/appointment-profile/appointment-profile.component';
 import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorService';
+import { FindAppointmentsOfAStudentCoursesComponent } from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorServi
     TeacherProfileComponent,
     StudentProfileComponent,
     AppointmentProfileComponent,
-    CourseProfileComponent
+    CourseProfileComponent,
+    FindAppointmentsOfAStudentCoursesComponent
   ],
   imports: [
     BrowserModule,
