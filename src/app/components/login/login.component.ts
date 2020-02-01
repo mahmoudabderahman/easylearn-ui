@@ -17,18 +17,27 @@ export class LoginComponent implements OnInit {
   password: string;
   errorMessage = 'Invalid Credentials';
   invalidLogin = false;
+  userType: string;
 
   ngOnInit() {
+    if (this.tokenStorageService.getToken()) {
+      this.invalidLogin = false;
+      this.userType = this.tokenStorageService.getUser().UserType;
+
+    }
   }
 
   checkLogin() {
     this.auth.authenticate(this.username, this.password).subscribe(
       data => {
-        console.log(data.accessToken);
+        console.log(data.token);
+        console.log(data)
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data);
-
         this.invalidLogin = false;
+        this.userType = this.tokenStorageService.getUser().UserType;
+        console.log(data.userType);
+        console.log(this.userType);
         this.router.navigate(['admin']);
 
       },
