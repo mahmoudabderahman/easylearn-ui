@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {TeacherComponent} from './components/teacher/teacher-list/teacher.component';
 import {ParentComponent} from './components/parent/parent-list/parent.component';
 import {StudentComponent} from './components/student/student-list/student.component';
 import {AppointmentComponent} from './components/appointment/appointment-list/appointment.component';
 import {CourseComponent} from './components/course/course-list/course.component';
-import { LoginComponent } from './components/login/login.component';
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
-import { UserComponent } from './components/user/user.component';
+import {LoginComponent} from './components/login/login.component';
+import {AdminPageComponent} from './components/admin-page/admin-page.component';
+import {UserComponent} from './components/user/user.component';
 import {RouteGuardService} from './route-guard.service';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
 import {StudentCreateComponent} from './components/student/student-create/student-create.component';
@@ -22,16 +22,16 @@ import {CourseUpdateComponent} from './components/course/course-update/course-up
 import {AppointmentCreateComponent} from './components/appointment/appointment-create/appointment-create.component';
 import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
 import {WelcomeComponent} from './components/welcome/welcome.component';
-import {AssignAppointmentsToCourseComponent} from "./components/course/assign-appointments-to-course/assign-appointments-to-course.component";
-import {ConfirmationPopoverModule} from "angular-confirmation-popover";
-import {AssignStudentsToAppointmentComponent} from "./components/appointment/assign-students-to-appointment/assign-students-to-appointment.component";
-import {AssignStudentsToParentComponent} from "./components/parent/assign-students-to-parent/assign-students-to-parent.component";
-import {AssignCoursesToTeacherComponent} from "./components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component";
-import {AssignStudentsToCourseComponent} from "./components/course/assign-students-to-course/assign-students-to-course.component";
-import {TeacherProfileComponent} from "./components/profiles/teacher-profile/teacher-profile.component";
-import {ParentProfileComponent} from "./components/profiles/parent-profile/parent-profile.component";
-import {StudentProfileComponent} from "./components/profiles/student-profile/student-profile.component";
-import {CourseProfileComponent} from "./components/profiles/course-profile/course-profile.component";
+import {AssignAppointmentsToCourseComponent} from './components/course/assign-appointments-to-course/assign-appointments-to-course.component';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+import {AssignStudentsToAppointmentComponent} from './components/appointment/assign-students-to-appointment/assign-students-to-appointment.component';
+import {AssignStudentsToParentComponent} from './components/parent/assign-students-to-parent/assign-students-to-parent.component';
+import {AssignCoursesToTeacherComponent} from './components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component';
+import {AssignStudentsToCourseComponent} from './components/course/assign-students-to-course/assign-students-to-course.component';
+import {TeacherProfileComponent} from './components/profiles/teacher-profile/teacher-profile.component';
+import {ParentProfileComponent} from './components/profiles/parent-profile/parent-profile.component';
+import {StudentProfileComponent} from './components/profiles/student-profile/student-profile.component';
+import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 
 const routes: Routes = [
   {
@@ -152,7 +152,7 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-    component: LogoutComponent , canActivate: [RouteGuardService]
+    component: LogoutComponent, canActivate: [RouteGuardService]
   },
   {
     path: '**',

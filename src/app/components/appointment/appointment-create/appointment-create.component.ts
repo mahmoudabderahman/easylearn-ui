@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {AppointmentService} from "../../../services/data/appointment/appointment.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Appointment} from "../appointment-list/appointment.component";
+import {Component, OnInit} from '@angular/core';
+import {AppointmentService} from '../../../services/data/appointment/appointment.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Appointment} from '../appointment-list/appointment.component';
 
 @Component({
   selector: 'app-appointment-create',
@@ -20,7 +20,8 @@ export class AppointmentCreateComponent implements OnInit {
     private appointmentService: AppointmentService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -30,8 +31,8 @@ export class AppointmentCreateComponent implements OnInit {
     this.appointmentService.createAppointment(this.appointment)
       .subscribe(
         data => {
-          this.pagesRouter.navigate(['appointments'])
+          this.pagesRouter.navigate(['appointments']);
         }
-      )
+      );
   }
 }

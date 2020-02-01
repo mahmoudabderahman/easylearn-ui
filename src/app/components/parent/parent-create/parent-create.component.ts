@@ -13,7 +13,7 @@ export class ParentCreateComponent implements OnInit {
   parent: Parent;
   firstName: string;
   lastName: string;
-  email: string;
+  username: string;
   password: string;
   type: ParentType = ParentType.FATHER;
 
@@ -21,15 +21,15 @@ export class ParentCreateComponent implements OnInit {
     private parentService: ParentService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
 
 
-
   createParent() {
-    this.parent = new Parent(this.firstName, this.lastName, this.email, this.password);
+    this.parent = new Parent(this.firstName, this.lastName, this.username, this.password);
     this.parent.type = this.type;
     this.parentService.createParent(this.parent)
       .subscribe(

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-error',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMessage = 'An Error Occurred! The page you have requested is not valid!'
+  errorMessage = 'An Error Occurred! The page you have requested is not valid!';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

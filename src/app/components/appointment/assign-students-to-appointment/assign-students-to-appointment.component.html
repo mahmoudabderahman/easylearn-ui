@@ -1,5 +1,6 @@
-<form [formGroup]="form" (ngSubmit)="submit()" >
-  <h4>Assigning students to the appointment with start date: {{appointmentStartDate | date: 'h:mm a EEE'}} To {{appointmentEndDate | date: 'h:mm a EEE'}} In Room {{appointmentRoom}}</h4>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h4>Assigning students to the appointment with start date: {{appointmentStartDate | date: 'h:mm a EEE'}}
+    To {{appointmentEndDate | date: 'h:mm a EEE'}} In Room {{appointmentRoom}}</h4>
   <!--<div formArrayName="students">
     <div *ngFor="let student of form.controls.students.controls; index as i">
       <input  type="checkbox" [formControlName]="i">
@@ -12,6 +13,6 @@
   </div>
 
   <div>
-    <button type="submit" class="btn btn-success" >Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
   </div>
 </form>

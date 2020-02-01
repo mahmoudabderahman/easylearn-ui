@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {Student} from "../../student/student-list/student.component";
-import {Parent} from "../parent-list/parent.component";
-import {ParentService} from "../../../services/data/parent/parent.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {StudentService} from "../../../services/data/student/student.service";
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Student} from '../../student/student-list/student.component';
+import {Parent} from '../parent-list/parent.component';
+import {ParentService} from '../../../services/data/parent/parent.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {StudentService} from '../../../services/data/student/student.service';
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 @Component({
   selector: 'app-assign-students-to-parent',
@@ -32,7 +32,7 @@ export class AssignStudentsToParentComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       students: new FormArray([])
-    })
+    });
     this.parentId = this.router.snapshot.params['id'];
     this.parentService.getParent(this.parentId).subscribe(
       data => {
@@ -44,38 +44,36 @@ export class AssignStudentsToParentComponent implements OnInit {
     this.studentService.getStudentsAllocatedToParent().subscribe(
       data => {
         this.studentsData = data;
-        this.studentsData.forEach((o, i) =>
-        {
+        this.studentsData.forEach((o, i) => {
           const control = new FormControl(i == 0);
           (this.form.controls.students as FormArray).push(control);
-        })
+        });
       }
-    )
+    );
   }
 
   ngOnInit() {
   }
 
   submit() {
-    this.dialogService.openConfirmDialog("Are you sure that you want to assign these students to this parent?")
+    this.dialogService.openConfirmDialog('Are you sure that you want to assign these students to this parent?')
       .afterClosed().subscribe(
-      res =>
-      {
+      res => {
         if (res) {
           const selectedPreferences = this.form.value.students
-            .map((checked, index) => checked? this.studentsData[index].id : null)
+            .map((checked, index) => checked ? this.studentsData[index].id : null)
             .filter(value => value != null);
-          console.log(selectedPreferences.length)
+          console.log(selectedPreferences.length);
           this.parentService.assignStudentsToParent(this.parentId, selectedPreferences)
             .subscribe(
               data => {
                 console.log(data);
                 this.pagesRouter.navigate(['parents']);
               }
-            )
+            );
         }
       }
-    )
+    );
 
   }
 }

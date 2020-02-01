@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {TokenStorageService} from '../../services/tokenStorageService';
 
@@ -11,7 +11,8 @@ export class MenuAdminComponent implements OnInit {
 
   isUserLoggedIn: boolean = false;
 
-  constructor(private auth: AuthenticationService, private tokenStorage: TokenStorageService) { }
+  constructor(private auth: AuthenticationService, private tokenStorage: TokenStorageService) {
+  }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {

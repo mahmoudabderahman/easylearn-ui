@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from '../course-list/course.component';
 import {CourseService} from '../../../services/data/course/course.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -32,7 +32,8 @@ export class CourseCreateComponent implements OnInit {
     private courseService: CourseService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }

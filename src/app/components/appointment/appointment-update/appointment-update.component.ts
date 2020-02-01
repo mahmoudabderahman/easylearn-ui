@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {AppointmentService} from "../../../services/data/appointment/appointment.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Appointment} from "../appointment-list/appointment.component";
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
+import {Component, OnInit} from '@angular/core';
+import {AppointmentService} from '../../../services/data/appointment/appointment.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Appointment} from '../appointment-list/appointment.component';
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 @Component({
   selector: 'app-appointment-update',
@@ -16,12 +16,14 @@ export class AppointmentUpdateComponent implements OnInit {
   endDate: Date;
   roomNumber: number;
   appointment: Appointment;
+
   constructor(
     private appointmentService: AppointmentService,
     private router: ActivatedRoute,
     private pagesRouter: Router,
     private dialogService: MatConfirmDialogService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.appointment = new Appointment(new Date(), new Date(), 0);
@@ -30,26 +32,26 @@ export class AppointmentUpdateComponent implements OnInit {
 
     this.appointmentService.getAppointment(this.id).subscribe(
       data => {
-        this.appointment = data;}
-    )
+        this.appointment = data;
+      }
+    );
 
   }
 
   saveAppointment() {
-    this.dialogService.openConfirmDialog("Are you sure that you want to save these changes?")
+    this.dialogService.openConfirmDialog('Are you sure that you want to save these changes?')
       .afterClosed().subscribe(
-        res =>
-        {
-          if (res) {
-            this.appointmentService.updateAppointment(this.id, this.appointment)
-              .subscribe(
-                data => {
-                  this.pagesRouter.navigate(['appointments']);
-                }
-              )
-          }
+      res => {
+        if (res) {
+          this.appointmentService.updateAppointment(this.id, this.appointment)
+            .subscribe(
+              data => {
+                this.pagesRouter.navigate(['appointments']);
+              }
+            );
         }
-    )
+      }
+    );
 
   }
 

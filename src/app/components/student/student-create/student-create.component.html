@@ -1,28 +1,35 @@
 <h1>Students</h1>
 <div class="container">
   <div class="alert alert-warning" *ngIf="studentForm.dirty && studentForm.invalid">Enter valid values</div>
-  <div class="alert alert-warning" *ngIf="studentForm.dirty && firstNametxt.invalid">Enter a valid value for first name</div>
-  <div class="alert alert-warning" *ngIf="studentForm.dirty && lastNametxt.invalid">Enter a valid value for last name</div>
+  <div class="alert alert-warning" *ngIf="studentForm.dirty && firstNametxt.invalid">Enter a valid value for first
+    name
+  </div>
+  <div class="alert alert-warning" *ngIf="studentForm.dirty && lastNametxt.invalid">Enter a valid value for last name
+  </div>
   <div class="alert alert-warning" *ngIf="studentForm.dirty && emailtxt.invalid">Enter a valid email address</div>
   <div class="alert alert-warning" *ngIf="studentForm.dirty && passwordtxt.invalid">Enter a valid password</div>
 
   <form (ngSubmit)="!studentForm.invalid && createStudent()" #studentForm="ngForm">
     <fieldset class="form-group">
       <label>First Name</label>
-      <input type="text" #firstNametxt="ngModel" [(ngModel)]="firstName" class="form-control" name="firstName" required="required" minlength="2">
+      <input type="text" #firstNametxt="ngModel" [(ngModel)]="firstName" class="form-control" name="firstName"
+             required="required" minlength="2">
     </fieldset>
     <fieldset class="form-group">
       <label>Last Name</label>
-      <input type="text" #lastNametxt="ngModel" [(ngModel)]="lastName" class="form-control" name="lastName" required="required" minlength="2">
+      <input type="text" #lastNametxt="ngModel" [(ngModel)]="lastName" class="form-control" name="lastName"
+             required="required" minlength="2">
     </fieldset>
     <fieldset class="form-group">
       <label>E-Mail</label>
-      <input [email]="true" type="email" #emailtxt="ngModel" [(ngModel)]="email" class="form-control" name="email" required="required">
+      <input [email]="true" type="email" #emailtxt="ngModel" [(ngModel)]="username" class="form-control" name="email"
+             required="required">
     </fieldset>
     <fieldset class="form-group">
       <label>Password</label>
-      <input type="text" #passwordtxt="ngModel" [(ngModel)]="password" class="form-control" name="password" required="required" minlength="6">
+      <input type="text" #passwordtxt="ngModel" [(ngModel)]="password" class="form-control" name="password"
+             required="required" minlength="6">
     </fieldset>
-    <button type="submit" class="btn btn-success" >Create</button>
+    <button type="submit" class="btn btn-success">Create</button>
   </form>
 </div>

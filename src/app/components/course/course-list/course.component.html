@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Courses - {{courses.length}}</h1>
   <button (click)="createCourse()" class="btn btn-success" id="create_btn">Create a new Course</button>
-  <div class="alert alert-success" *ngIf="message" >{{message}}</div>
+  <div class="alert alert-success" *ngIf="message">{{message}}</div>
   <table class="table">
     <thead>
     <tr>
@@ -19,17 +19,18 @@
       <td>{{course.grade}}</td>
       <td>{{course.description}}</td>
       <td>
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Actions
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item"  (click)="updateCourse(course.id)">Update</a>
-          <a class="dropdown-item" (click)="deleteCourse(course.id)">Delete</a>
-          <a class="dropdown-item" (click)="assignAppointments(course.id)">Assign Appointments</a>
-          <a class="dropdown-item" (click)="assignStudents(course.id)">Assign Students</a>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="updateCourse(course.id)">Update</a>
+            <a class="dropdown-item" (click)="deleteCourse(course.id)">Delete</a>
+            <a class="dropdown-item" (click)="assignAppointments(course.id)">Assign Appointments</a>
+            <a class="dropdown-item" (click)="assignStudents(course.id)">Assign Students</a>
+          </div>
         </div>
-      </div>
       </td>
       <!--
       <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button> </td>

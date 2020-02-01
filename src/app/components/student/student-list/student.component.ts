@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentService} from '../../../services/data/student/student.service';
 import {Router} from '@angular/router';
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 export class Student {
   public id: number;
+
   constructor(
-              public firstName: string,
-              public lastName: string,
-              public email: string,
-              public password: string
-              ) { }
+    public firstName: string,
+    public lastName: string,
+    public username: string,
+    public password: string
+  ) {
+  }
 
 }
 
@@ -24,7 +26,9 @@ export class StudentComponent implements OnInit {
   students: Student[];
   message: string;
   student: Student;
-  constructor(private service: StudentService, private router: Router, private dialogService: MatConfirmDialogService) { }
+
+  constructor(private service: StudentService, private router: Router, private dialogService: MatConfirmDialogService) {
+  }
 
   ngOnInit() {
     this.refreshStudents();
@@ -32,17 +36,18 @@ export class StudentComponent implements OnInit {
 
   refreshStudents() {
     this.service.getStudents().subscribe(
-      data => {this.students = data; },
+      data => {
+        this.students = data;
+      },
       err => console.error(err),
       () => console.log('Students loaded')
     );
   }
 
   deleteStudent(id) {
-    this.dialogService.openConfirmDialog("Are you sure that you want to delete this student?")
-      .afterClosed().subscribe(res =>
-    {
-      console.log(res)
+    this.dialogService.openConfirmDialog('Are you sure that you want to delete this student?')
+      .afterClosed().subscribe(res => {
+      console.log(res);
       if (res) {
         this.service.deleteStudent(id).subscribe(
           response => {
@@ -51,7 +56,7 @@ export class StudentComponent implements OnInit {
           }
         );
       }
-    })
+    });
   }
 
   updateStudent(id) {

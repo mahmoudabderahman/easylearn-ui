@@ -1,24 +1,21 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Appointment} from '../../../components/appointment/appointment-list/appointment.component';
-import {Observable} from "rxjs";
-import {TokenStorageService} from "../../tokenStorageService";
-const API_URL = '/server/api/v1/appointments';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
 
-  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
-
-  getAppointmentsAllocatedByCourse() : Observable<any> {
-    let token = this.tokenStorageService.getToken();
-    const headers = new HttpHeaders({Authorization: 'Bearer ' + token});
-    return this.http.get<Appointment[]>(API_URL + '?ideal=true', {headers});
+  constructor(private http: HttpClient) {
   }
 
-  getAppointments() : Observable<any> {
+  getAppointmentsAllocatedByCourse() {
+    return this.http.get<Appointment[]>('/server/api/v1/appointments?ideal=true');
+  }
+
+  getAppointments() {
     return this.http.get<Appointment[]>('/server/api/v1/appointments');
   }
 
@@ -39,6 +36,6 @@ export class AppointmentService {
   }
 
   assignStudentsToAppointment(id: number, studentIds: []) {
-    return this.http.post(`/server/api/v1/appointments/${id}/students`, studentIds)
+    return this.http.post(`/server/api/v1/appointments/${id}/students`, studentIds);
   }
 }

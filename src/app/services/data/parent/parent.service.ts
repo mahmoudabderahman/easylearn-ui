@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Parent} from '../../../components/parent/parent-list/parent.component';
-import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ParentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getParents() : Observable<any> {
+  getParents() {
     return this.http.get<Parent[]>('/server/api/v1/parents');
   }
 
@@ -32,6 +32,6 @@ export class ParentService {
   }
 
   assignStudentsToParent(id: number, studentIds: []) {
-    return this.http.post(`/server/api/v1/parents/${id}/students`, studentIds)
+    return this.http.post(`/server/api/v1/parents/${id}/students`, studentIds);
   }
 }

@@ -1,3 +1,4 @@
 export class Grade {
-  id: number; name: number;
+  id: number;
+  name: number;
 }

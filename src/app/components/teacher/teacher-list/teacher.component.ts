@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TeacherService} from '../../../services/data/teacher/teacher.service';
 import {Router} from '@angular/router';
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 export class Teacher {
   public id: number;
+
   constructor(
     public firstName: string,
     public lastName: string,
-    public email: string,
+    public username: string,
     public password: string
-  ) { }
+  ) {
+  }
 }
 
 @Component({
@@ -23,7 +25,8 @@ export class TeacherComponent implements OnInit {
   message: string;
   teacher: Teacher;
 
-  constructor(private teacherService: TeacherService, private router: Router, private dialogService: MatConfirmDialogService) { }
+  constructor(private teacherService: TeacherService, private router: Router, private dialogService: MatConfirmDialogService) {
+  }
 
   ngOnInit() {
     this.refreshTeachers();
@@ -31,17 +34,18 @@ export class TeacherComponent implements OnInit {
 
   refreshTeachers() {
     this.teacherService.getTeachers().subscribe(
-      data => {this.teachers = data; },
+      data => {
+        this.teachers = data;
+      },
       err => console.error(err),
       () => console.log('Teachers loaded')
     );
   }
 
   deleteTeacher(id) {
-    this.dialogService.openConfirmDialog("Are you sure that you want to delete this teacher?")
-      .afterClosed().subscribe(res =>
-    {
-      console.log(res)
+    this.dialogService.openConfirmDialog('Are you sure that you want to delete this teacher?')
+      .afterClosed().subscribe(res => {
+      console.log(res);
       if (res) {
         this.teacherService.deleteTeacher(id).subscribe(
           response => {
@@ -50,7 +54,7 @@ export class TeacherComponent implements OnInit {
           }
         );
       }
-    })
+    });
 
   }
 
@@ -63,6 +67,6 @@ export class TeacherComponent implements OnInit {
   }
 
   assignCourses(id) {
-    this.router.navigate(['teachers/assignCoursesToTeacher', id])
+    this.router.navigate(['teachers/assignCoursesToTeacher', id]);
   }
 }

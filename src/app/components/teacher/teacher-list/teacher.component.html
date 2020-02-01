@@ -11,15 +11,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let teacher of teachers">
-      <td>{{teacher.email}}</td>
+      <td>{{teacher.username}}</td>
       <td>{{teacher.firstName + ' ' + teacher.lastName}}</td>
       <td>
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
             Actions
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"  (click)="updateTeacher(teacher.id)">Update</a>
+            <a class="dropdown-item" (click)="updateTeacher(teacher.id)">Update</a>
             <a class="dropdown-item" (click)="deleteTeacher(teacher.id)">Delete</a>
             <a class="dropdown-item" (click)="assignCourses(teacher.id)">Assign Courses</a>
 

@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ParentService} from '../../../services/data/parent/parent.service';
 import {Router} from '@angular/router';
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
-
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 
 export class Parent {
   public id: number;
   public type: ParentType;
+
   constructor(
     public firstName: string,
     public lastName: string,
     public username: string,
     public password: string,
-
   ) {
   }
 
@@ -36,7 +35,8 @@ export class ParentComponent implements OnInit {
   message: string;
   parent: Parent;
 
-  constructor(private parentService: ParentService, private router: Router, private dialogService: MatConfirmDialogService) { }
+  constructor(private parentService: ParentService, private router: Router, private dialogService: MatConfirmDialogService) {
+  }
 
   ngOnInit() {
     this.refreshParents();
@@ -44,17 +44,18 @@ export class ParentComponent implements OnInit {
 
   refreshParents() {
     this.parentService.getParents().subscribe(
-      data => {this.parents = data; },
+      data => {
+        this.parents = data;
+      },
       error => console.error(error),
       () => console.log('Parents loaded')
     );
   }
 
   deleteParent(id) {
-    this.dialogService.openConfirmDialog("Are you sure that you want to delete this parent?")
-      .afterClosed().subscribe(res =>
-    {
-      console.log(res)
+    this.dialogService.openConfirmDialog('Are you sure that you want to delete this parent?')
+      .afterClosed().subscribe(res => {
+      console.log(res);
       if (res) {
         this.parentService.deleteParent(id).subscribe(
           response => {
@@ -63,7 +64,7 @@ export class ParentComponent implements OnInit {
           }
         );
       }
-    })
+    });
 
   }
 

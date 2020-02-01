@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Parent} from '../../../components/parent/parent-list/parent.component';
 import {Course} from '../../../components/course/course-list/course.component';
-import {Appointment} from "../../../components/appointment/appointment-list/appointment.component";
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +10,10 @@ export class CourseService {
 
   courseId: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getCourses():Observable<any>  {
+  getCourses() {
     return this.http.get<Course[]>('/server/api/v1/courses?ideal=false');
   }
 

@@ -1,11 +1,11 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {Appointment} from "../../appointment/appointment-list/appointment.component";
-import {AppointmentService} from "../../../services/data/appointment/appointment.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {CourseService} from "../../../services/data/course/course.service";
-import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn} from "@angular/forms";
-import {Course} from "../course-list/course.component";
-import {MatConfirmDialogService} from "../../../services/util/mat-confirm-dialog.service";
+import {Appointment} from '../../appointment/appointment-list/appointment.component';
+import {AppointmentService} from '../../../services/data/appointment/appointment.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CourseService} from '../../../services/data/course/course.service';
+import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn} from '@angular/forms';
+import {Course} from '../course-list/course.component';
+import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog.service';
 
 @Component({
   selector: 'app-assign-appointments-to-course',
@@ -32,7 +32,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       appointments: new FormArray([])
-    })
+    });
     this.courseId = this.router.snapshot.params['id'];
     this.courseService.getCourse(this.courseId).subscribe(
       data => {
@@ -41,7 +41,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
         this.courseCode = data.courseCode;
       }
     );
-    this.appointmentService.getAppointmentsAllocatedByCourse() .subscribe(
+    this.appointmentService.getAppointmentsAllocatedByCourse().subscribe(
       data => {
         this.appointmentsData = data;
         this.appointmentsData.forEach((o, i) => {
@@ -51,7 +51,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
         });
 
       }
-    )
+    );
     //console.log(this.appointmentsData.length)
 
   }
@@ -64,8 +64,8 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     const selectedPreferences = this.form.value.appointments
       .map((checked, index) => checked ? this.appointmentsData[index].id : null)
       .filter(value => value !== null);
-    console.log(selectedPreferences.length)
-    this.dialogService.openConfirmDialog("Are you sure that you want to allocate these appointments to this course?")
+    console.log(selectedPreferences.length);
+    this.dialogService.openConfirmDialog('Are you sure that you want to allocate these appointments to this course?')
       .afterClosed().subscribe(
       res => {
         if (res) {
@@ -78,7 +78,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
             );
         }
       }
-    )
+    );
   }
 
 }

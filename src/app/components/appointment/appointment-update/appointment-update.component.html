@@ -1,29 +1,37 @@
 <h1>Appointments</h1>
 <div class="container">
   <div class="alert alert-warning" *ngIf="appointmentForm.dirty && appointmentForm.invalid">Enter valid values</div>
-  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && startDateTxt.invalid">Enter a valid value for start date</div>
-  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && endDateTxt.invalid">Enter a valid value for end date</div>
-  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && roomNumberTxt.invalid">Enter a valid room number</div>
+  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && startDateTxt.invalid">Enter a valid value for start
+    date
+  </div>
+  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && endDateTxt.invalid">Enter a valid value for end
+    date
+  </div>
+  <div class="alert alert-warning" *ngIf="appointmentForm.dirty && roomNumberTxt.invalid">Enter a valid room number
+  </div>
 
   <form (ngSubmit)="!appointmentForm.invalid && saveAppointment()" #appointmentForm="ngForm">
     <fieldset class="form-group">
       <label>Start Date</label>
       <!--<input type="datetime-local" #startDateTxt="ngModel" [ngModel]="startDate | date:'yyyy-MM-ddTHH:mm'"  [(ngModel)]="startDate" required="required"/>-->
 
-      <input type="datetime-local" #startDateTxt="ngModel"  [ngModel]="appointment.startDate| date:'yyyy-MM-ddTHH:mm'"
-             (ngModelChange)="appointment.startDate = $event" [(ngModel)]="appointment.startDate" class="form-control" name="startDate" required="required">
+      <input type="datetime-local" #startDateTxt="ngModel" [ngModel]="appointment.startDate| date:'yyyy-MM-ddTHH:mm'"
+             (ngModelChange)="appointment.startDate = $event" [(ngModel)]="appointment.startDate" class="form-control"
+             name="startDate" required="required">
     </fieldset>
     <fieldset class="form-group">
       <label>End Date</label>
       <!-- <input type="datetime-local" #endDateTxt="ngModel" [ngModel]="endDate | date:'yyyy-MM-ddTHH:mm'"  [(ngModel)]="endDate" required="required"/>-->
 
-      <input type="datetime-local" #endDateTxt="ngModel"  [ngModel]="appointment.endDate| date:'yyyy-MM-ddTHH:mm'"
-             (ngModelChange)="appointment.endDate = $event" [(ngModel)]="appointment.endDate" class="form-control" name="endDate" required="required">
+      <input type="datetime-local" #endDateTxt="ngModel" [ngModel]="appointment.endDate| date:'yyyy-MM-ddTHH:mm'"
+             (ngModelChange)="appointment.endDate = $event" [(ngModel)]="appointment.endDate" class="form-control"
+             name="endDate" required="required">
     </fieldset>
     <fieldset class="form-group">
       <label>Room Number</label>
-      <input type="text" #roomNumberTxt="ngModel" [(ngModel)]="appointment.roomNumber" class="form-control" name="content" required="required" minlength="3">
+      <input type="text" #roomNumberTxt="ngModel" [(ngModel)]="appointment.roomNumber" class="form-control"
+             name="content" required="required" minlength="3">
     </fieldset>
-    <button type="submit" class="btn btn-success" >Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
   </form>
 </div>
