@@ -40,6 +40,14 @@ export class MenuAdminComponent implements OnInit {
   }
 
   fillAttendanceList(id) {
-    this.router.navigate(['fillAttendanceList', id])
+    this.router.navigate(['fillAttendanceList', id]);
   }
+
+  showChilderenOfParent(id) {
+    this.router.navigate(['students/parent', id]);
+
+  }
+
+
+
 }

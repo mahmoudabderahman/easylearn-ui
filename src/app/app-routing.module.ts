@@ -23,6 +23,7 @@ import {AppointmentUpdateComponent} from './components/appointment/appointment-u
 import {WelcomeComponent} from './components/welcome/welcome.component';
 import {AssignAppointmentsToCourseComponent} from './components/course/assign-appointments-to-course/assign-appointments-to-course.component';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+// tslint:disable-next-line:max-line-length
 import {AssignStudentsToAppointmentComponent} from './components/appointment/assign-students-to-appointment/assign-students-to-appointment.component';
 import {AssignStudentsToParentComponent} from './components/parent/assign-students-to-parent/assign-students-to-parent.component';
 import {AssignCoursesToTeacherComponent} from './components/teacher/assign-teacher-to-course/assign-courses-to-teacher.component';
@@ -36,6 +37,10 @@ import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/
 import {FindCoursesOfStudentComponent} from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
 import {GetCoursesOfTeacherComponent} from './components/profiles/teachers/get-courses-of-teacher/get-courses-of-teacher.component';
 import {FillAttendanceListComponent} from './components/profiles/teachers/fill-attendance-list/fill-attendance-list.component';
+// tslint:disable-next-line:max-line-length
+import {GetCoursesOfParentsStudentsComponent} from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
+import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
+import {GetAppointmentsOfParentStudentsComponent} from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
 
 const routes: Routes = [
   {
@@ -91,6 +96,10 @@ const routes: Routes = [
     component: StudentProfileComponent, canActivate: [RouteGuardService]
   },
   {
+    path: 'students/parent/:id',
+    component: GetChilderenOfParentComponent, canActivate: [RouteGuardService]
+  },
+  {
     path: 'appointments',
     component: AppointmentComponent, canActivate: [RouteGuardService]
   },
@@ -102,6 +111,11 @@ const routes: Routes = [
     path: 'appointments/edit/:id',
     component: AppointmentUpdateComponent, canActivate: [RouteGuardService]
   },
+  {
+    path: 'appointments/parent/student/:id',
+    component: GetAppointmentsOfParentStudentsComponent, canActivate: [RouteGuardService]
+  },
+
   {
     path: 'courses',
     component: CourseComponent, canActivate: [RouteGuardService]
@@ -133,6 +147,10 @@ const routes: Routes = [
   {
     path: 'courses/teacher/:id',
     component: GetCoursesOfTeacherComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/students/parent/:id',
+    component: GetCoursesOfParentsStudentsComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'appointments/assignStudentsToAppointment/:id',

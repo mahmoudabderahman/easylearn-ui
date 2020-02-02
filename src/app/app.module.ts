@@ -43,10 +43,15 @@ import {StudentProfileComponent} from './components/profiles/student-profile/stu
 import {AppointmentProfileComponent} from './components/profiles/appointment-profile/appointment-profile.component';
 import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorService';
+// tslint:disable-next-line:max-line-length
 import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
 import { FindCoursesOfStudentComponent } from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
 import { GetCoursesOfTeacherComponent } from './components/profiles/teachers/get-courses-of-teacher/get-courses-of-teacher.component';
 import { FillAttendanceListComponent } from './components/profiles/teachers/fill-attendance-list/fill-attendance-list.component';
+// tslint:disable-next-line:max-line-length
+import { GetCoursesOfParentsStudentsComponent } from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
+import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
+import { GetAppointmentsOfParentStudentsComponent } from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +93,10 @@ import { FillAttendanceListComponent } from './components/profiles/teachers/fill
     FindAppointmentsOfAStudentCoursesComponent,
     FindCoursesOfStudentComponent,
     GetCoursesOfTeacherComponent,
-    FillAttendanceListComponent
+    FillAttendanceListComponent,
+    GetCoursesOfParentsStudentsComponent,
+    GetChilderenOfParentComponent,
+    GetAppointmentsOfParentStudentsComponent
   ],
   imports: [
     BrowserModule,

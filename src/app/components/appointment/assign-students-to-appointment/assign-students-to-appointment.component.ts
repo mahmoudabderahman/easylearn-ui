@@ -31,7 +31,7 @@ export class AssignStudentsToAppointmentComponent implements OnInit {
     private pagesRouter: Router,
     private studentService: StudentService,
     private formBuilder: FormBuilder,
-    private dialogService: MatConfirmDialogService
+    private dialogService: MatConfirmDialogService,
   ) {
     this.form = this.formBuilder.group({
       students: new FormArray([])
@@ -72,7 +72,7 @@ export class AssignStudentsToAppointmentComponent implements OnInit {
             .subscribe(
               data => {
                 console.log(data);
-                this.pagesRouter.navigate(['appointments']);
+                this.pagesRouter.navigate(['../'])
               }
             );
         }

@@ -52,17 +52,11 @@
         </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments"
-                                                                                           class="nav-link">Show Courses
-          of My Children
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" (click)="showChilderenOfParent(tokenStorage.getUser().id)"
+          class="nav-link">Show my Children
         </a>
       </li>
-      <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments"
-                                                                                           class="nav-link">Show
-          Attendance List of My Children
-        </a>
-      </li>
+
     </ul>
     <ul class="navbar-nav navbar-collapse justify-content-end">
       <li>

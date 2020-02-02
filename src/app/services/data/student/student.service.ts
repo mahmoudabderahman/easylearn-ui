@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Student} from '../../../components/student/student-list/student.component';
 
@@ -8,14 +8,20 @@ import {Student} from '../../../components/student/student-list/student.componen
 export class StudentService {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getStudents() {
     return this.http.get<Student[]>('/server/api/v1/students');
   }
 
-  getStudentsAllocatedToParent() {
+  getStudentsNotAllocatedToParent() {
     return this.http.get<Student[]>('server/api/v1/students?parentAllocated=false');
+  }
+
+  getStudentsAllocatedToParent(id) {
+    return this.http.get<Student[]>(`server/api/v1/students?parentAllocated=true&parentId=${id}`);
+
   }
 
   getStudentsAllocatedToCourse() {
@@ -29,6 +35,7 @@ export class StudentService {
   getStudentsNotAllocatedToThisCourse(courseId: number) {
     return this.http.get<Student[]>(`server/api/v1/students?courseAllocated=false&courseId=${courseId}`);
   }
+
   deleteStudent(id) {
     return this.http.delete(`/server/api/v1/students/${id}`);
   }

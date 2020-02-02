@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Attended Appointments - {{appointments.length}}
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Room Number</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let appointment of appointments">
+      <td>{{appointment.startDate | date: 'EEEE, MMMM d, y, h:mm:ss a'}}</td>
+      <td>{{appointment.endDate | date: 'EEEE, MMMM d, y, h:mm:ss a'}}</td>
+      <td>{{appointment.roomNumber}}</td>
+
+      <!--<td><button (click)="updateAppointment(appointment.id)" class="btn btn-success">Update</button> </td>
+      <td><button (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Delete</button> </td>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

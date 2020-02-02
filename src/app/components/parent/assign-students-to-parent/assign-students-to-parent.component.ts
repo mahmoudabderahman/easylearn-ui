@@ -41,7 +41,7 @@ export class AssignStudentsToParentComponent implements OnInit {
         this.parentLastName = data.lastName;
       }
     );
-    this.studentService.getStudentsAllocatedToParent().subscribe(
+    this.studentService.getStudentsNotAllocatedToParent().subscribe(
       data => {
         this.studentsData = data;
         this.studentsData.forEach((o, i) => {
