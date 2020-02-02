@@ -6,43 +6,62 @@
     </div>
     <ul class="navbar-nav">
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/students" class="nav-link">Students</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/students"
+                                                                                          class="nav-link">Students
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/teachers" class="nav-link">Teachers</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/teachers"
+                                                                                          class="nav-link">Teachers
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/parents" class="nav-link">Parents</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/parents"
+                                                                                          class="nav-link">Parents
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/courses" class="nav-link">Courses</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/courses"
+                                                                                          class="nav-link">Courses
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/appointments" class="nav-link">Appointments</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'ADMIN'" routerLink="/appointments"
+                                                                                          class="nav-link">Appointments
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'STUDENT'" (click)="showAppointmentsOfAStudent(tokenStorage.getUser().id)" class="nav-link">Show my Appointments</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'STUDENT'" (click)="showAppointmentsOfAStudent(tokenStorage.getUser().id)"
+          class="nav-link">Show my Appointments
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'STUDENT'" routerLink="/appointments" class="nav-link">Show my Courses</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'STUDENT'"  (click)="showCoursesOfAStudent(tokenStorage.getUser().id)"
+          class="nav-link">Show my Courses
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" routerLink="/appointments" class="nav-link">Courses that I teach</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" (click)="showCoursesOfATeacher(tokenStorage.getUser().id)"
+          class="nav-link">Courses that I teach
+        </a>
+      </li>
+
+      <li>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" (click)="fillAttendanceList(tokenStorage.getUser().id)"
+          class="nav-link">Fill Attendance List
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" routerLink="/appointments" class="nav-link">Assign Students To a Course</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments"
+                                                                                           class="nav-link">Show Courses
+          of My Children
+        </a>
       </li>
       <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" routerLink="/appointments" class="nav-link">Assign Students To an Appointment</a>
-      </li>
-      <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'TEACHER'" routerLink="/appointments" class="nav-link">My Students</a>
-      </li>
-      <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments" class="nav-link">Show Courses of My Children</a>
-      </li>
-      <li>
-        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments" class="nav-link">Show Attendance List of My Children</a>
+        <a *ngIf="tokenStorage.getToken() && tokenStorage.getUser().userType === 'PARENT'" routerLink="/appointments"
+                                                                                           class="nav-link">Show
+          Attendance List of My Children
+        </a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-collapse justify-content-end">

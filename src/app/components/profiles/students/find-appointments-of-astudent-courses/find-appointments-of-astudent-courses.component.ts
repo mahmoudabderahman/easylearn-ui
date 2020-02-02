@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Appointment} from "../../../appointment/appointment-list/appointment.component";
-import {AppointmentService} from "../../../../services/data/appointment/appointment.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Appointment} from '../../../appointment/appointment-list/appointment.component';
+import {AppointmentService} from '../../../../services/data/appointment/appointment.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-find-appointments-of-astudent-courses',
@@ -13,10 +13,11 @@ export class FindAppointmentsOfAStudentCoursesComponent implements OnInit {
   appointments: Appointment[];
 
 
-  constructor(private appointmentService: AppointmentService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private appointmentService: AppointmentService, private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    this.showAppointmentsOfStudent()
+    this.showAppointmentsOfStudent();
   }
 
   showAppointmentsOfStudent() {
@@ -26,6 +27,6 @@ export class FindAppointmentsOfAStudentCoursesComponent implements OnInit {
         this.appointments = data;
       },
       error => console.error(error)
-    )
+    );
   }
 }

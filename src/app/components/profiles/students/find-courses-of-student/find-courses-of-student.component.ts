@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Course} from '../../../course/course-list/course.component';
+import {CourseService} from '../../../../services/data/course/course.service';
 
 @Component({
   selector: 'app-find-courses-of-student',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindCoursesOfStudentComponent implements OnInit {
 
-  constructor() { }
+  courses: Course[];
 
-  ngOnInit() {
+  constructor(private courseService: CourseService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
+
+  ngOnInit() {
+    this.showCoursesOfStudent();
+  }
+
+  showCoursesOfStudent() {
+
+    this.courseService.getCoursesOfStudent(this.activatedRoute.snapshot.params['id']).subscribe(
+      data => {
+        this.courses = data;
+      },
+      error => console.error(error)
+    );
+  }
 }

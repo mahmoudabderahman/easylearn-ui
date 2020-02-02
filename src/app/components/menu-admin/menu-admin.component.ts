@@ -30,4 +30,16 @@ export class MenuAdminComponent implements OnInit {
     this.router.navigate(['appointments/student', id]);
     //this.appointmentService.findAllAppointmentsOfStudentCourses(this.router.snapshot.params['id'])
   }
+
+  showCoursesOfAStudent(id) {
+    this.router.navigate(['courses/student', id]);
+  }
+
+  showCoursesOfATeacher(id) {
+    this.router.navigate(['courses/teacher', id]);
+  }
+
+  fillAttendanceList(id) {
+    this.router.navigate(['fillAttendanceList', id])
+  }
 }

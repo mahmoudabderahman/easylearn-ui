@@ -31,7 +31,11 @@ import {TeacherProfileComponent} from './components/profiles/teacher-profile/tea
 import {ParentProfileComponent} from './components/profiles/parent-profile/parent-profile.component';
 import {StudentProfileComponent} from './components/profiles/student-profile/student-profile.component';
 import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
+// tslint:disable-next-line:max-line-length
 import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
+import {FindCoursesOfStudentComponent} from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
+import {GetCoursesOfTeacherComponent} from './components/profiles/teachers/get-courses-of-teacher/get-courses-of-teacher.component';
+import {FillAttendanceListComponent} from './components/profiles/teachers/fill-attendance-list/fill-attendance-list.component';
 
 const routes: Routes = [
   {
@@ -123,12 +127,24 @@ const routes: Routes = [
     component: AssignStudentsToCourseComponent, canActivate: [RouteGuardService]
   },
   {
+    path: 'courses/student/:id',
+    component: FindCoursesOfStudentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'courses/teacher/:id',
+    component: GetCoursesOfTeacherComponent, canActivate: [RouteGuardService]
+  },
+  {
     path: 'appointments/assignStudentsToAppointment/:id',
     component: AssignStudentsToAppointmentComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'appointments/student/:id',
     component: FindAppointmentsOfAStudentCoursesComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'fillAttendanceList/:id',
+    component: FillAttendanceListComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'parents/assignStudentsToParent/:id',

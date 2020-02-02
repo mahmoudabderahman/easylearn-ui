@@ -17,6 +17,14 @@ export class CourseService {
     return this.http.get<Course[]>('/server/api/v1/courses?ideal=false');
   }
 
+  getCoursesOfStudent(id) {
+    return this.http.get<Course[]>(`/server/api/v1/courses?studentId=${id}`);
+  }
+
+  getCoursesOfTeacher(id) {
+    return this.http.get<Course[]>(`/server/api/v1/courses?teacherId=${id}`);
+  }
+
   getCoursesNotAllocatedToTeacher() {
     return this.http.get<Course[]>('/server/api/v1/courses?ideal=true');
   }

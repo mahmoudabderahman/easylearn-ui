@@ -19,6 +19,10 @@ export class AppointmentService {
     return this.http.get<Appointment[]>('/server/api/v1/appointments');
   }
 
+  getAppointmentsOfTeacherCourses(id) {
+    return this.http.get<Appointment[]>(`/server/api/v1/appointments?teacherId=${id}`);
+  }
+
   findAllAppointmentsOfStudentCourses(id) {
     return this.http.get<Appointment[]>(`/server/api/v1/appointments?studentId=${id}`);
   }
