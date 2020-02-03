@@ -52,6 +52,7 @@ import { FillAttendanceListComponent } from './components/profiles/teachers/fill
 import { GetCoursesOfParentsStudentsComponent } from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
 import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
 import { GetAppointmentsOfParentStudentsComponent } from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
+import { DocumentComponent } from './components/document/document.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { GetAppointmentsOfParentStudentsComponent } from './components/profiles/
     FillAttendanceListComponent,
     GetCoursesOfParentsStudentsComponent,
     GetChilderenOfParentComponent,
-    GetAppointmentsOfParentStudentsComponent
+    GetAppointmentsOfParentStudentsComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,

@@ -28,4 +28,7 @@ export class GetCoursesOfTeacherComponent implements OnInit {
       );
   }
 
+  uploadContent(id) {
+
+  }
 }

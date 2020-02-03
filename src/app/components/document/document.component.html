@@ -1,0 +1,13 @@
+<h1>Document Upload</h1>
+<div class="container">
+
+  <form (ngSubmit)=" createDocument()" #appointmentForm="ngForm">
+
+    <fieldset class="form-group">
+      <label>Upload File</label>
+      <input type="file" class="form-control" accept="*"
+             (change)="onSelectFile($event)" style="height: 100%">
+    </fieldset>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

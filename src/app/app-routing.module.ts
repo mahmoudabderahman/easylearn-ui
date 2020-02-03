@@ -41,6 +41,7 @@ import {FillAttendanceListComponent} from './components/profiles/teachers/fill-a
 import {GetCoursesOfParentsStudentsComponent} from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
 import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
 import {GetAppointmentsOfParentStudentsComponent} from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
+import {DocumentComponent} from "./components/document/document.component";
 
 const routes: Routes = [
   {
@@ -171,6 +172,10 @@ const routes: Routes = [
   {
     path: 'teachers/assignCoursesToTeacher/:id',
     component: AssignCoursesToTeacherComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'uploadDocument',
+    component: DocumentComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',
