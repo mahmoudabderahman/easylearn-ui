@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h4>Assigning students to the course with code: {{courseCode}}, name: {{courseName}}, in grade {{courseGrade}}</h4>
+
+  <div formArrayName="students" *ngFor="let student of form.controls.students.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    {{studentsData[i].firstName + ' ' + studentsData[i].lastName}}
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-success">Save</button>
+  </div>
+</form>

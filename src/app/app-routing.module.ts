@@ -41,7 +41,11 @@ import {FillAttendanceListComponent} from './components/profiles/teachers/fill-a
 import {GetCoursesOfParentsStudentsComponent} from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
 import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
 import {GetAppointmentsOfParentStudentsComponent} from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
-import {DocumentComponent} from "./components/document/document.component";
+import {DocumentComponent} from './components/document/document.component';
+import {GetStudentsInCourseComponent} from './components/profiles/teachers/get-students-in-course/get-students-in-course.component';
+import {EvaluateStudentComponent} from './components/profiles/teachers/evaluate-student/evaluate-student.component';
+import {GetEvaluationOfChildComponent} from './components/profiles/parents/get-evaluation-of-child/get-evaluation-of-child.component';
+import {DownloadDocumentComponent} from './components/profiles/students/download-document/download-document.component';
 
 const routes: Routes = [
   {
@@ -174,8 +178,24 @@ const routes: Routes = [
     component: AssignCoursesToTeacherComponent, canActivate: [RouteGuardService]
   },
   {
-    path: 'uploadDocument',
+    path: 'uploadDocument/:courseId',
     component: DocumentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'downloadDocument/:courseId',
+    component: DownloadDocumentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'getStudentsInCourse/:courseId',
+    component: GetStudentsInCourseComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'evaluateStudent/:courseId/:studentId',
+    component: EvaluateStudentComponent, canActivate: [RouteGuardService]
+  },
+  {
+    path: 'showEvaluation/:courseId/:studentId',
+    component: GetEvaluationOfChildComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'login',

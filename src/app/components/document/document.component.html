@@ -1,13 +1,29 @@
-<h1>Document Upload</h1>
 <div class="container">
 
-  <form (ngSubmit)=" createDocument()" #appointmentForm="ngForm">
+  <h1>Already Uploaded Documents - {{documents.length}}
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Download</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of documents">
+      <td>{{document.nameOfFile}}</td>
+      <td><button type="submit" class="btn btn-success" (click)="downloadDocument(document.nameOfFile)">Download</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <h1>Upload Document</h1>
+    <form (ngSubmit)=" createDocument()">
 
-    <fieldset class="form-group">
-      <label>Upload File</label>
-      <input type="file" class="form-control" accept="*"
-             (change)="onSelectFile($event)" style="height: 100%">
-    </fieldset>
-    <button type="submit" class="btn btn-success">Save</button>
-  </form>
+      <fieldset class="form-group">
+        <label>Upload File</label>
+        <input type="file" class="form-control" accept="*"
+               (change)="onSelectFile($event)" style="height: 100%">
+      </fieldset>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
 </div>

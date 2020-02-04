@@ -45,14 +45,18 @@ import {CourseProfileComponent} from './components/profiles/course-profile/cours
 import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorService';
 // tslint:disable-next-line:max-line-length
 import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
-import { FindCoursesOfStudentComponent } from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
-import { GetCoursesOfTeacherComponent } from './components/profiles/teachers/get-courses-of-teacher/get-courses-of-teacher.component';
-import { FillAttendanceListComponent } from './components/profiles/teachers/fill-attendance-list/fill-attendance-list.component';
+import {FindCoursesOfStudentComponent} from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
+import {GetCoursesOfTeacherComponent} from './components/profiles/teachers/get-courses-of-teacher/get-courses-of-teacher.component';
+import {FillAttendanceListComponent} from './components/profiles/teachers/fill-attendance-list/fill-attendance-list.component';
 // tslint:disable-next-line:max-line-length
-import { GetCoursesOfParentsStudentsComponent } from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
+import {GetCoursesOfParentsStudentsComponent} from './components/profiles/parents/get-courses-of-parents-students/get-courses-of-parents-students.component';
 import {GetChilderenOfParentComponent} from './components/profiles/parents/get-childeren-of-parent/get-childeren-of-parent.component';
-import { GetAppointmentsOfParentStudentsComponent } from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
-import { DocumentComponent } from './components/document/document.component';
+import {GetAppointmentsOfParentStudentsComponent} from './components/profiles/parents/get-appointments-of-parent-students/get-appointments-of-parent-students.component';
+import {DocumentComponent} from './components/document/document.component';
+import {GetStudentsInCourseComponent} from './components/profiles/teachers/get-students-in-course/get-students-in-course.component';
+import { EvaluateStudentComponent } from './components/profiles/teachers/evaluate-student/evaluate-student.component';
+import { GetEvaluationOfChildComponent } from './components/profiles/parents/get-evaluation-of-child/get-evaluation-of-child.component';
+import { DownloadDocumentComponent } from './components/profiles/students/download-document/download-document.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +102,11 @@ import { DocumentComponent } from './components/document/document.component';
     GetCoursesOfParentsStudentsComponent,
     GetChilderenOfParentComponent,
     GetAppointmentsOfParentStudentsComponent,
-    DocumentComponent
+    DocumentComponent,
+    GetStudentsInCourseComponent,
+    EvaluateStudentComponent,
+    GetEvaluationOfChildComponent,
+    DownloadDocumentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<h1>Evaluate Student</h1>
+<div class="container">
+  <h4>Evaluate Student: {{student.firstName + ' ' + student.lastName}} For Course {{course.name}}</h4>
+  <div class="alert alert-warning" *ngIf="evaluateForm.dirty && evaluateForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="evaluateForm.dirty && pointsTxt.invalid">Enter a valid value for points
+  </div>
+  <div class="alert alert-warning" *ngIf="evaluateForm.dirty && maxPointsTxt.invalid">Enter a valid value for max values
+  </div>
+
+  <form (ngSubmit)="!evaluateForm.invalid && evaluateStudent()" #evaluateForm="ngForm">
+    <fieldset class="form-group">
+      <label>Points</label>
+      <input type="text" #pointsTxt="ngModel" [(ngModel)]="resultPoints" class="form-control" name="points"
+             required="required" minlength="1">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Maximum Points</label>
+      <input type="text" #maxPointsTxt="ngModel" [(ngModel)]="maxPoints" class="form-control" name="maxPoints"
+             required="required"
+             minlength="2">
+    </fieldset>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

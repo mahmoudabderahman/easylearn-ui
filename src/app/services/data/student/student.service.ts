@@ -24,8 +24,8 @@ export class StudentService {
 
   }
 
-  getStudentsAllocatedToCourse() {
-    return this.http.get<Student[]>('server/api/v1/students?courseAllocated=true');
+  getStudentsAllocatedToCourse(courseId) {
+    return this.http.get<Student[]>(`server/api/v1/students?courseAllocated=true&courseId=${courseId}`);
   }
 
   getStudentsNotAllocatedToThisAppointment(appointmentId: number) {

@@ -29,6 +29,10 @@ export class GetCoursesOfTeacherComponent implements OnInit {
   }
 
   uploadContent(id) {
+    this.router.navigate(['uploadDocument', id]);
+  }
 
+  evaluateStudents(id) {
+    this.router.navigate(['getStudentsInCourse', id]);
   }
 }
