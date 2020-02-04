@@ -1,9 +1,7 @@
-<h1>
-  Welcome to Easy Learn Application
-</h1>
+<h2 class="text-primary">Welcome to Easy Learn Application</h2>
 <a *ngIf="tokenStorageService.getToken()" routerLink="/logout" class="nav-link">
-  <button class="btn btn-danger">Logout</button>
+  <button class="btn btn-outline-danger">Logout</button>
 </a>
 <a *ngIf="!tokenStorageService.getToken()" routerLink="/login" class="nav-link">
-  <button class="btn btn-danger">Login</button>
+  <button class="btn btn-outline-primary">Login</button>
 </a>

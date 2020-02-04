@@ -1,1 +1,11 @@
+.btn-outline-light:hover {
+  text-decoration: none;
+  background: none;
+  border: #ffffff;
+}
 
+.btn-outline-danger:hover {
+  text-decoration: none;
+  background: none;
+  border: 1px solid #a71d2a !important;
+}
