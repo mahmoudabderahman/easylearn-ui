@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {Teacher} from '../teacher-list/teacher.component';
 import {TeacherService} from '../../../services/data/teacher/teacher.service';

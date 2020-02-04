@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Course} from '../../course/course-list/course.component';

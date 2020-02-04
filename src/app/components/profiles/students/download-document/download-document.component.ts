@@ -1,9 +1,13 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {DocumentService} from '../../../../services/data/document/document.service';
 import {TokenStorageService} from '../../../../services/tokenStorageService';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {Document} from '../../../document/document.component';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-download-document',
@@ -38,15 +42,10 @@ export class DownloadDocumentComponent implements OnInit {
   }
 
   downloadDocument(fileName) {
-    let link = null;
     this.documentService.downloadDocument(fileName).subscribe(
       data => {
         saveAs(data);
-        /*
-        console.(data);
-        console.log(link);
-        window.open(link);
-      */
+
       }
     );
   }

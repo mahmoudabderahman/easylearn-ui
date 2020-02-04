@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {DocumentService} from '../../services/data/document/document.service';
 import {TokenStorageService} from '../../services/tokenStorageService';
@@ -11,8 +14,7 @@ export class Document {
   constructor(
     public data: File,
     public nameOfFile: string,
-    public downloadLink: string,
-    public uploader: string
+
   ) {
   }
 }
@@ -25,10 +27,8 @@ export class Document {
 export class DocumentComponent implements OnInit {
 
   documents: Document[];
-  document: Document;
   public userFile: any = File;
-  linkOfFile: string;
-  response: string;
+
 
   constructor(private documentService: DocumentService,
               private tokenStorageService: TokenStorageService,
@@ -53,15 +53,10 @@ export class DocumentComponent implements OnInit {
   }
 
   downloadDocument(fileName) {
-    let link = null;
     this.documentService.downloadDocument(fileName).subscribe(
       data => {
         saveAs(data);
-        /*
-        console.(data);
-        console.log(link);
-        window.open(link);
-      */
+
       }
     );
 
@@ -69,12 +64,10 @@ export class DocumentComponent implements OnInit {
 
   createDocument() {
 
-    //console.log(this.userFile);
     const formData = new FormData();
     formData.append('file', this.userFile);
     formData.append('nameOfFile', 'file');
     console.log(formData.get('file'));
-    //this.document = new Document(JSON.stringify(this.userFile), 'doc', this.tokenStorageService.getUser().username);
     // console.log(this.document);
     console.log(this.userFile);
 
@@ -83,7 +76,6 @@ export class DocumentComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          //this.pagesRouter.navigate(['courses']);
         },
         error => console.error(error),
       );

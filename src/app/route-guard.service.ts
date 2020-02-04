@@ -1,4 +1,5 @@
 /**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
  * This service is responsible for checking if a user can see logged in users pages.
  */
 import {Injectable} from '@angular/core';

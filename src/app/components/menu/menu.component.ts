@@ -1,15 +1,17 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {TokenStorageService} from '../../services/tokenStorageService';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AppointmentService} from '../../services/data/appointment/appointment.service';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu-admin.component.html',
-  styleUrls: ['./menu-admin.component.css']
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class MenuAdminComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
   isUserLoggedIn: boolean = false;
   id: number;
@@ -28,7 +30,6 @@ export class MenuAdminComponent implements OnInit {
 
   showAppointmentsOfAStudent(id) {
     this.router.navigate(['appointments/student', id]);
-    //this.appointmentService.findAllAppointmentsOfStudentCourses(this.router.snapshot.params['id'])
   }
 
   showCoursesOfAStudent(id) {

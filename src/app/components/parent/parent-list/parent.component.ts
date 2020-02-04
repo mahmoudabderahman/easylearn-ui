@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {ParentService} from '../../../services/data/parent/parent.service';
 import {Router} from '@angular/router';

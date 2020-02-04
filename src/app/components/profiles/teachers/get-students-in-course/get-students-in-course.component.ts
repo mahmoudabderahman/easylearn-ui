@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Student} from '../../../student/student-list/student.component';
@@ -62,7 +65,7 @@ export class GetStudentsInCourseComponent implements OnInit {
   }
 
   submit() {
-    this.dialogService.openConfirmDialog('Are you sure that you want to evaluate this student to this course?')
+    this.dialogService.openConfirmDialog('Are you sure that you want to evaluate this student?')
       .afterClosed().subscribe(
       res => {
         if (res) {
@@ -75,16 +78,7 @@ export class GetStudentsInCourseComponent implements OnInit {
           } else {
             console.log(selectedPreferences[0].valueOf('id'));
             this.pagesRouter.navigate(['evaluateStudent', this.courseId, selectedPreferences[0].valueOf('id')]);
-            /*
-          this.courseService.assignStudentsToCourse(this.courseId, selectedPreferences)
-            .subscribe(
-              data => {
-                //console.log(data);
-                this.pagesRouter.navigate(['courses']);
-              }
-            );
 
-             */
           }
 
         }

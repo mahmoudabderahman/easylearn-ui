@@ -1,4 +1,8 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../../../services/tokenStorageService';
 
 @Component({
   selector: 'app-student-profile',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
   }

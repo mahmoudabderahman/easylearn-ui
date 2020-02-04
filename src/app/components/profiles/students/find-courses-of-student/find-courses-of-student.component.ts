@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Course} from '../../../course/course-list/course.component';
@@ -33,7 +36,6 @@ export class FindCoursesOfStudentComponent implements OnInit {
 
   showEvaluation(courseId) {
     this.router.navigate(['showEvaluation', courseId, this.activatedRoute.snapshot.params['id']]);
-    //this.resultService.getEvaluationOfStudent(this.activatedRoute.snapshot.params['id'], courseId)
   }
 
   getDocuments(id) {

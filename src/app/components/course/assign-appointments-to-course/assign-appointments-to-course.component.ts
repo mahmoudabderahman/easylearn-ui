@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Appointment} from '../../appointment/appointment-list/appointment.component';
 import {AppointmentService} from '../../../services/data/appointment/appointment.service';
@@ -14,7 +17,7 @@ import {MatConfirmDialogService} from '../../../services/util/mat-confirm-dialog
 })
 export class AssignAppointmentsToCourseComponent implements OnInit {
 
-  form: FormGroup;// = new FormGroup();
+  form: FormGroup; // = new FormGroup();
   private appointmentsData: Appointment[];
   courseId: number;
   courseName: string;
@@ -33,7 +36,7 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
     this.form = this.formBuilder.group({
       appointments: new FormArray([])
     });
-    this.courseId = this.router.snapshot.params['id'];
+    this.courseId = this.router.snapshot.params.id;
     this.courseService.getCourse(this.courseId).subscribe(
       data => {
         this.course = data;
@@ -52,7 +55,6 @@ export class AssignAppointmentsToCourseComponent implements OnInit {
 
       }
     );
-    //console.log(this.appointmentsData.length)
 
   }
 

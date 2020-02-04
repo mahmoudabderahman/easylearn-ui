@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {AppointmentService} from '../../../services/data/appointment/appointment.service';
 import {ActivatedRoute, Router} from '@angular/router';

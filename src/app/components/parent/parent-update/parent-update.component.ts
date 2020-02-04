@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {Parent, ParentType} from '../parent-list/parent.component';
 import {ParentService} from '../../../services/data/parent/parent.service';

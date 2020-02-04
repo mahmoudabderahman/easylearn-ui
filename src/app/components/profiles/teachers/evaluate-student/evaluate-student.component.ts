@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatConfirmDialogService} from '../../../../services/util/mat-confirm-dialog.service';
@@ -6,6 +9,7 @@ import {Student} from '../../../student/student-list/student.component';
 import {Course} from '../../../course/course-list/course.component';
 import {StudentService} from '../../../../services/data/student/student.service';
 import {CourseService} from '../../../../services/data/course/course.service';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 export class Result {
   public id: number;
@@ -39,7 +43,9 @@ export class EvaluateStudentComponent implements OnInit {
     private dialogService: MatConfirmDialogService,
     private studentResultService: ResultService,
     private studentService: StudentService,
-    private courseService: CourseService
+    private courseService: CourseService,
+    private location: Location
+
   ) {
   }
 
@@ -67,6 +73,8 @@ export class EvaluateStudentComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.location.back();
+
         }
       );
 

@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {TeacherComponent} from './components/teacher/teacher-list/teacher.component';
@@ -31,7 +34,6 @@ import {AssignStudentsToCourseComponent} from './components/course/assign-studen
 import {TeacherProfileComponent} from './components/profiles/teacher-profile/teacher-profile.component';
 import {ParentProfileComponent} from './components/profiles/parent-profile/parent-profile.component';
 import {StudentProfileComponent} from './components/profiles/student-profile/student-profile.component';
-import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 // tslint:disable-next-line:max-line-length
 import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
 import {FindCoursesOfStudentComponent} from './components/profiles/students/find-courses-of-student/find-courses-of-student.component';
@@ -132,10 +134,6 @@ const routes: Routes = [
   {
     path: 'courses/edit/:id',
     component: CourseUpdateComponent, canActivate: [RouteGuardService]
-  },
-  {
-    path: 'courses/profile/:id',
-    component: CourseProfileComponent, canActivate: [RouteGuardService]
   },
   {
     path: 'courses/assignAppointmentsToCourse/:id',

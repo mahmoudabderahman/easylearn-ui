@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
@@ -12,7 +15,7 @@ import {LoginComponent} from './components/login/login.component';
 import {AdminPageComponent} from './components/admin-page/admin-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorComponent} from './components/error/error.component';
-import {MenuAdminComponent} from './components/menu-admin/menu-admin.component';
+import {MenuComponent} from './components/menu/menu.component';
 import {StudentUpdateComponent} from './components/student/student-update/student-update.component';
 import {StudentCreateComponent} from './components/student/student-create/student-create.component';
 import {LogoutComponent} from './components/logout/logout.component';
@@ -26,7 +29,6 @@ import {CourseUpdateComponent} from './components/course/course-update/course-up
 import {AppointmentCreateComponent} from './components/appointment/appointment-create/appointment-create.component';
 import {AppointmentUpdateComponent} from './components/appointment/appointment-update/appointment-update.component';
 import {WelcomeComponent} from './components/welcome/welcome.component';
-import {EasylearnService} from './services/data/easylearn.service';
 import {AssignAppointmentsToCourseComponent} from './components/course/assign-appointments-to-course/assign-appointments-to-course.component';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 import {MatConfirmDialogComponent} from './components/util/mat-confirm-dialog/mat-confirm-dialog.component';
@@ -40,8 +42,6 @@ import {AssignCoursesToTeacherComponent} from './components/teacher/assign-teach
 import {ParentProfileComponent} from './components/profiles/parent-profile/parent-profile.component';
 import {TeacherProfileComponent} from './components/profiles/teacher-profile/teacher-profile.component';
 import {StudentProfileComponent} from './components/profiles/student-profile/student-profile.component';
-import {AppointmentProfileComponent} from './components/profiles/appointment-profile/appointment-profile.component';
-import {CourseProfileComponent} from './components/profiles/course-profile/course-profile.component';
 import {authInterceptorProviders} from './services/BasicAuthHtppInterceptorService';
 // tslint:disable-next-line:max-line-length
 import {FindAppointmentsOfAStudentCoursesComponent} from './components/profiles/students/find-appointments-of-astudent-courses/find-appointments-of-astudent-courses.component';
@@ -69,7 +69,7 @@ import { DownloadDocumentComponent } from './components/profiles/students/downlo
     LoginComponent,
     AdminPageComponent,
     ErrorComponent,
-    MenuAdminComponent,
+    MenuComponent,
     StudentUpdateComponent,
     StudentCreateComponent,
     LogoutComponent,
@@ -93,8 +93,6 @@ import { DownloadDocumentComponent } from './components/profiles/students/downlo
     ParentProfileComponent,
     TeacherProfileComponent,
     StudentProfileComponent,
-    AppointmentProfileComponent,
-    CourseProfileComponent,
     FindAppointmentsOfAStudentCoursesComponent,
     FindCoursesOfStudentComponent,
     GetCoursesOfTeacherComponent,

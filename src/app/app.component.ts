@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from './services/tokenStorageService';
 
@@ -23,7 +26,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
-    //console.log(this.tokenStorageService.getToken());
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.UserType = user.UserType;
@@ -32,9 +34,6 @@ export class AppComponent implements OnInit {
       this.isStudent = this.UserType.includes('STUDENT');
       this.isTeacher = this.UserType.includes('TEACHER');
       this.isAdmin = this.UserType.includes('ADMIN')
-      //console.log(this.isTeacher);
-      //console.log(this.isStudent);
-      //console.log(this.isParent);
       this.username = user.username;
     }
   }

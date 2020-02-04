@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {CourseService} from '../../../services/data/course/course.service';
 import {Router} from '@angular/router';

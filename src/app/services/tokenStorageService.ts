@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Injectable} from '@angular/core';
 
 const TOKEN_KEY = 'auth-token';

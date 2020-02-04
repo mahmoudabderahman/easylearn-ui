@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Teacher} from '../../../components/teacher/teacher-list/teacher.component';

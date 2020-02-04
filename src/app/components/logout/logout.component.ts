@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {TokenStorageService} from '../../services/tokenStorageService';
@@ -14,7 +17,6 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
     this.tokenStorageService.signOut();
-    //this.auth.logout()
   }
 
 }

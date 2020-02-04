@@ -1,3 +1,6 @@
+/**
+ * @Author: Mahmoud Abdelrahman, Steve Titinang
+ */
 import {Component, OnInit} from '@angular/core';
 import {Appointment} from '../../../appointment/appointment-list/appointment.component';
 import {AppointmentService} from '../../../../services/data/appointment/appointment.service';
