@@ -1,5 +1,5 @@
 /**
- * @Author: Mahmoud Abdelrahman, Steve Titinang
+ * @Author: Mahmoud Abdelrahman
  */
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';

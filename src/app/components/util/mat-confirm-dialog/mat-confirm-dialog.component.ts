@@ -1,5 +1,5 @@
 /**
- * @Author: Mahmoud Abdelrahman, Steve Titinang
+ * @Author: Mahmoud Abdelrahman
  */
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';

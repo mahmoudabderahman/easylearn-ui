@@ -1,5 +1,5 @@
 /**
- * @Author: Mahmoud Abdelrahman, Steve Titinang
+ * @Author: Mahmoud Abdelrahman
  */
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {Injectable} from '@angular/core';

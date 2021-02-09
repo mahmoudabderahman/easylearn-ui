@@ -1,5 +1,5 @@
 /**
- * @Author: Mahmoud Abdelrahman, Steve Titinang
+ * @Author: Mahmoud Abdelrahman
  */
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';

@@ -1,5 +1,5 @@
 /**
- * @Author: Mahmoud Abdelrahman, Steve Titinang
+ * @Author: Mahmoud Abdelrahman
  */
 import {Component, OnInit} from '@angular/core';
 import {Appointment} from '../../../appointment/appointment-list/appointment.component';
